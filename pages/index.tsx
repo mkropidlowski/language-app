@@ -7,7 +7,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Language App</title>
       </Head>
-      
+      <h1>Dodanie commita nr.1</h1>
      
     
     </div>
