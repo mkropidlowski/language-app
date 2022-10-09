@@ -5,6 +5,7 @@ const Button: FC = (
     (
         {
             // propsy
+            // button
         }
     ) => (
         <button>
