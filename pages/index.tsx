@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import Button from '../components/atoms/Button'
 
 const Home: NextPage = () => {
   return (
@@ -7,8 +8,13 @@ const Home: NextPage = () => {
       <Head>
         <title>Language App</title>
       </Head>
-      <h1>Dodanie commita nr.1</h1>
-      <h2>Dodanie commita nr.2</h2>
+     <Button
+        color='tertiary'
+        buttonSize='medium'
+
+      >
+      Button
+     </Button>
      
     
     </div>
