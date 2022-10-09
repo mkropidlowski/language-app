@@ -5,6 +5,7 @@ const Heading: FC = (
     (
         {
             // propsy
+            //heading
         }
     ) => (
         <button>
