@@ -13,24 +13,6 @@
     box-shadow: 0 4px 2px -2px $color-menu-box-shadow;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap:30px;
-    .companyName {
-        position: relative;
-        top:5px;
-        display: flex;
-        flex-direction: column;
-    }
-    .companyName::after {
-        position: relative;
-        top:-10px;
-        content: 'Małgorzata Langowska';
-        font-size:13px;
-    }
-}
-
 .menu {
     display: flex;
 }
