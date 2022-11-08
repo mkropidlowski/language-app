@@ -1,3 +1,5 @@
+@import '/styles/_variables.scss';
+
 *,
 *::before,
 *::after {
@@ -8,6 +10,11 @@
 
 body,
 html {
-	scroll-behavior: smooth;
-    background: lightblue;
+	scroll-behavior: smooth !important;
+	font-family: $font-main;
 }
+
+a {
+	text-decoration: none;
+}
+
