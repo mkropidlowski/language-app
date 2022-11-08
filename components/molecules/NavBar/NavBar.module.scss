@@ -1,0 +1,36 @@
+@import '/styles/_variables.scss';
+@import './styles/_breakpoints.scss';
+
+.wrapper {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1;
+    background: $color-light-blue;
+    box-shadow: 0 4px 2px -2px $color-menu-box-shadow;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap:30px;
+    .companyName {
+        position: relative;
+        top:5px;
+        display: flex;
+        flex-direction: column;
+    }
+    .companyName::after {
+        position: relative;
+        top:-10px;
+        content: 'Małgorzata Langowska';
+        font-size:13px;
+    }
+}
+
+.menu {
+    display: flex;
+}

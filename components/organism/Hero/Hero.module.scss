@@ -1,0 +1,20 @@
+@import '/styles/_variables.scss';
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    max-width: $page-max-width;
+    height: 100vh;
+    gap:100px;
+    .content {
+        width:500px;
+        height: 400px;
+        .description {
+            margin-top: 40px;
+            font-size:18px;
+        }
+        .contactUsBtn {
+            margin-top: 35px;
+        }
+    }
+}
