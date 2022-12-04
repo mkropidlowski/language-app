@@ -1,8 +1,8 @@
 @import "/styles/_variables.scss";
 
 .wrapper {
-    display: flex;
-    align-items: center;
     max-width: $page-max-width;
-    height: 80vh;
+    height: 800px;
+    display: flex;
+    justify-content: center;
 }

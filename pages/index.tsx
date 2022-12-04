@@ -1,28 +1,23 @@
-import { NextPage } from 'next';
-import style from './homePage.module.scss';
-import NavBar from '../components/molecules/NavBar';
-import Hero from '../components/organism/Hero';
-import SeoData from '../components/atoms/SeoData';
-import AboutSection from '../components/organism/AboutSection';
-import Slider from '../components/molecules/Slider';
-import { SliderLinks } from '../components/molecules/Slider/data/SliderLinks';
-import Footer from '../components/organism/Footer';
-import UserReview from '../components/organism/UserReview';
+import { NextPage } from "next";
+import style from "./homePage.module.scss";
+import Hero from "../components/organism/Hero";
+import AboutSection from "../components/organism/AboutSection";
+import Slider from "../components/molecules/Slider";
+import { SliderLinks } from "../components/molecules/Slider/data/SliderLinks";
+import PageLayout from "../components/molecules/PageLayout";
+import ContactForm from "../components/molecules/ContactForm";
 
 const Home: NextPage = () => {
-  return (
-    <>
-    <SeoData title='Language App' description='Małgosia Langowska'/>
-      <div className={style.container}>
-        <NavBar />
-        <Hero />
-        <AboutSection />
-        <Slider slides={SliderLinks} />
-        <UserReview />
-        <Footer />
-      </div>
-    </>
-  )
-}
+    return (
+        <>
+            <PageLayout title="Language App" description="Małgorzata Langowska" shouldNavbarBeTransparentOnLoad>
+                <Hero />
+                <AboutSection />
+                <Slider slides={SliderLinks} />
+                <ContactForm />
+            </PageLayout>
+        </>
+    );
+};
 
-export default Home
+export default Home;
