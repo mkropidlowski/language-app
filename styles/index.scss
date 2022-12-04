@@ -1,20 +1,19 @@
-@import '/styles/_variables.scss';
+@import "/styles/_variables.scss";
 
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body,
 html {
-	scroll-behavior: smooth !important;
-	font-family: $font-main;
+    scroll-behavior: smooth !important;
+    font-family: $font-main;
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
-

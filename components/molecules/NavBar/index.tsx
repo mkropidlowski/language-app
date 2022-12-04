@@ -1,34 +1,58 @@
 import { FC, HTMLProps } from "react";
-import style from "../NavBar/NavBar.module.scss";
+import style from "../NavBar/navBar.module.scss";
 import Link from "next/link";
-import { menuLinks } from "../NavBar/helpers/menuLinks";
+import { menuLinks } from "../../../config/navbar/data";
 import Button from "../../atoms/Button";
 import Logo from "../../atoms/Logo";
+import clsx from "clsx";
+import { useActiveNavbarHook } from "../../../hooks/useActiveNavbarHook";
 
 export interface Props {
-    href?: string;
+    links?: Props[];
     text?: string;
+    shouldNavbarBeTransparentOnLoad?: boolean;
 }
 
 export interface LinksProps {
-    links?: Props[];
+    text?: string;
 }
 
-const NavBar: FC<LinksProps & HTMLProps<HTMLDivElement>> = ({ links = menuLinks }) => {
+const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({
+    links = menuLinks,
+    className,
+    shouldNavbarBeTransparentOnLoad = false,
+}) => {
+    const isNavbarActive = useActiveNavbarHook();
     return (
-        <nav className={style.wrapper}>
+        <nav
+            className={clsx(
+                style.wrapper,
+                shouldNavbarBeTransparentOnLoad && !isNavbarActive && style.active,
+                className
+            )}
+        >
             <Logo />
-            <div className={style.menu}>
-                {links.map(({ href, text }) => (
-                    <Link key={text} href={href}>
-                        <a>
-                            <Button type="button" color="tertiary" buttonSize="small">
-                                {text}
-                            </Button>
-                        </a>
-                    </Link>
-                ))}
-            </div>
+            <ul className={style.menu}>
+                {Object.values(links).map(({ id, text }) => {
+                    const linksHref = `/#${id}`;
+                    return (
+                        <li key={text} className={style.menuLinks}>
+                            <Link href={linksHref}>
+                                <a>
+                                    <Button
+                                        type="button"
+                                        color="tertiary"
+                                        buttonSize="medium"
+                                        className={style.menuButton}
+                                    >
+                                        {text}
+                                    </Button>
+                                </a>
+                            </Link>
+                        </li>
+                    );
+                })}
+            </ul>
 
             <div className={style.loginButton}>
                 <Link href="/login">

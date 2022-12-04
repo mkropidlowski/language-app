@@ -8,11 +8,24 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    z-index: 1;
-    background: $color-light-blue;
+    z-index: 50;
+    background: $color-white;
     box-shadow: 0 4px 2px -2px $color-menu-box-shadow;
-}
+    transition: background 0.5s;
+    .menu {
+        display: flex;
+        .menuLinks {
+            list-style-type: none;
+        }
+    }
 
-.menu {
-    display: flex;
+    &.active {
+        background: transparent;
+        box-shadow: none;
+        .menuLinks {
+            .menuButton {
+                color: $color-white;
+            }
+        }
+    }
 }
