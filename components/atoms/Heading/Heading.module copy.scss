@@ -1,0 +1,38 @@
+@import '/styles/_variables.scss';
+
+
+.h1,
+.h2,
+.h3,
+.h4 {
+    color: $color-heading-dark-blue;
+    position: relative;
+    font-family: $font-main;
+    &.bold {
+        font-weight: 700;
+    }
+}
+
+.h1 {
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 48px;
+}
+
+.h2 {
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 44px;
+}
+
+.h3 {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.h4 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
