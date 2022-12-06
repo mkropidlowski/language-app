@@ -1,5 +1,5 @@
 import { FC, HTMLProps } from "react";
-import style from "./AboutSection.module.scss";
+import style from "./aboutSection.module.scss";
 import Image from "next/image";
 import { AboutContent } from "./components/AboutContent";
 

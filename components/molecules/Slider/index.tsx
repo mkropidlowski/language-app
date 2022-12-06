@@ -1,5 +1,5 @@
 import { FC, HTMLProps, useId, useState } from "react";
-import style from "./Slider.module.scss";
+import style from "./slider.module.scss";
 import Image from "next/image";
 import { LeftArrow, RightArrow } from "../../icons";
 

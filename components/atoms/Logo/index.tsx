@@ -2,7 +2,7 @@ import { FC, HTMLProps } from "react";
 import Image from "next/image";
 import Heading from "../../atoms/Heading";
 import Link from "next/link";
-import style from "./Logo.module.scss";
+import style from "./logo.module.scss";
 
 export interface Props {
     className?: string;
