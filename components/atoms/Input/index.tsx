@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ChangeEvent, FC, HTMLProps } from "react";
+import { ChangeEvent, forwardRef, HTMLProps } from "react";
 import Label from "../Label";
 import style from "./input.module.scss";
 
@@ -18,41 +18,46 @@ export interface Props {
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: FC<Props & HTMLProps<HTMLInputElement>> = (
-    {
-        type,
-        id,
-        name,
-        value = "",
-        defaultValue,
-        error,
-        errorText,
-        className,
-        isError = error || !errorText,
-        shouldRenderLabel,
-        onChange = () => null,
-        required,
+const Input = forwardRef<HTMLInputElement, Props & HTMLProps<HTMLInputElement>>(
+    (
+        {
+            type,
+            id,
+            name,
+            value = "",
+            defaultValue,
+            label,
+            error,
+            errorText,
+            className,
+            isError = error || !errorText,
+            shouldRenderLabel,
+            onChange = () => null,
+            required,
+        },
+        ref,
         ...rest
-    },
-    ref
-) => {
-    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => onChange?.(e);
-    return (
-        <div className={style.inputWrapper}>
-            {isError ? <div className={style.errorMessage}>{errorText}</div> : null}
-            {shouldRenderLabel ? <Label className={style.label} text={"TEST"} /> : null}
-            <input
-                className={clsx(style.input)}
-                type={type}
-                id={id}
-                name={name}
-                defaultValue={defaultValue}
-                onChange={inputHandler}
-                ref={ref}
-                {...rest}
-            />
-        </div>
-    );
-};
+    ) => {
+        const inputHandler = (e: ChangeEvent<HTMLInputElement>) => onChange?.(e);
+        const inputPlaceholder = `${label}`;
+        return (
+            <div className={style.inputWrapper}>
+                {isError ? <div className={style.errorMessage}>{errorText}</div> : null}
+                {shouldRenderLabel ? <Label className={style.label} text={inputPlaceholder} /> : null}
+                <input
+                    className={clsx(style.input)}
+                    type={type}
+                    id={id}
+                    name={name}
+                    defaultValue={defaultValue}
+                    onChange={inputHandler}
+                    ref={ref}
+                    {...rest}
+                />
+            </div>
+        );
+    }
+);
 
+Input.displayName = "Input";
 export default Input;

@@ -1,0 +1,13 @@
+@import "/styles/_variables.scss";
+
+.content {
+    width: 360px;
+    margin-top: 80px;
+    .contentText {
+        margin-top: 20px;
+    }
+    .socialMediaIcon {
+        margin-top: 25px;
+        padding: 5px;
+    }
+}
