@@ -1,13 +1,23 @@
 @import "/styles/_variables.scss";
+@import "./styles/_breakpoints.scss";
 
 .wrapper {
     max-width: $page-max-width;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    @include lg {
+        justify-content: center;
+    }
     .footerLogo {
         display: flex;
         align-items: flex-start;
+        @include lg {
+            .footerLogo {
+                align-items: unset;
+                justify-content: center;
+            }
+        }
     }
     .footerContainer {
         height: 400px;
@@ -17,6 +27,9 @@
         .columnContainer {
             padding: 10px;
             display: flex;
+            @include lg {
+                flex-direction: column;
+            }
         }
     }
 }

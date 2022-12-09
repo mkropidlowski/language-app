@@ -1,16 +1,23 @@
 @import "/styles/_variables.scss";
+@import "./styles/_breakpoints.scss";
 
 .contactWrapper {
     max-width: $page-max-width;
-    height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
+    scroll-margin-top: -20px;
+    margin: 100px 0 100px;
+    @include lg {
+        margin: 0 0 100px;
+    }
     .form {
         display: flex;
         justify-content: space-around;
-        width: 700px;
-        height: 500px;
+        max-width: 760px;
+        padding: 30px;
+        gap: 70px;
+        height: fit-content;
         background-color: $color-white;
         box-shadow: 0px 10px 20px -9px rgba(91, 97, 160, 1);
         border-radius: 30px;

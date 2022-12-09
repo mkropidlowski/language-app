@@ -4,7 +4,22 @@
 .wrapper {
     display: flex;
     justify-content: center;
+    position: relative;
+    top: 100px;
+    scroll-margin-top: 130px;
     max-width: $page-max-width;
-    height: 80vh;
+    height: 100vh;
     gap: 100px;
+    @include lg {
+        flex-direction: column;
+        top: 0;
+    }
+    .image {
+        margin-top: 100px;
+        @include lg {
+            display: flex;
+            justify-content: center;
+            margin-top: 0;
+        }
+    }
 }

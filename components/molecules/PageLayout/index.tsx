@@ -16,6 +16,7 @@ const PageLayout: FC<Props> = ({ title, description, shouldNavbarBeTransparentOn
         <SeoData title={title} description={description} />
         <NavBar shouldNavbarBeTransparentOnLoad={shouldNavbarBeTransparentOnLoad} className={style.wrapper} />
         <main className={style.container}>{children}</main>
+        <Footer />
     </>
 );
 

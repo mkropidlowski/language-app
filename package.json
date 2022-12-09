@@ -8,7 +8,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "svgr": "npx @svgr/cli svg-icons --out-dir components/icons --icon --typescript  --ignore-existing "
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.1",

@@ -28,7 +28,7 @@ const ContactForm: FC = () => {
         console.log(formData);
     };
     return (
-        <div className={style.contactWrapper}>
+        <div className={style.contactWrapper} id="contact">
             <form
                 className={style.form}
                 onSubmit={(e) => {

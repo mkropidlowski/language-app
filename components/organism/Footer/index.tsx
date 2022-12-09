@@ -13,7 +13,7 @@ export interface Props {
 const Footer: FC<Props & HTMLProps<HTMLDivElement>> = ({ className, column = ColumnLinks }) => {
     const id = useId();
     return (
-        <div className={style.wrapper} id="contact">
+        <div className={style.wrapper}>
             <Logo className={style.footerLogo} />
             <div className={style.footerContainer}>
                 <div className={style.columnContainer}>
