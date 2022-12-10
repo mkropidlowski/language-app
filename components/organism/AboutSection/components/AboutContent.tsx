@@ -12,9 +12,11 @@ export const AboutContent = () => {
             </Heading>
             <div className={style.desciption}>
                 <p className={style.descritpionTitle}>{descriptionTitle}</p>
-                <ul>
+                <ul className={style.advantagesList}>
                     {description.map((item) => (
-                        <li key={`${ID}-${item}`}>{item}</li>
+                        <li key={`${ID}-${item}`} className={style.advantagesItem}>
+                            {item}
+                        </li>
                     ))}
                 </ul>
             </div>

@@ -14,18 +14,150 @@
     transition: background 0.5s;
     .menu {
         display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        @include xl {
+            gap: 40px;
+        }
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
         .menuLinks {
             list-style-type: none;
+            overflow: hidden;
         }
     }
 
     &.active {
-        background: transparent;
-        box-shadow: none;
-        .menuLinks {
-            .menuButton {
+        @include md {
+            background: transparent;
+            box-shadow: none;
+            .linkButton {
+                text-align: center;
                 color: $color-white;
+                &:active {
+                    background-color: transparent;
+                    border-radius: $border-radius-primary;
+                }
             }
+            .logo {
+                path {
+                    stroke: white;
+                }
+            }
+        }
+    }
+
+    .linkButton {
+        text-align: center;
+        padding: 2px;
+        &:hover {
+            text-decoration: underline;
+        }
+        &:active {
+            text-decoration: none;
+            border-radius: $border-radius-primary;
+        }
+    }
+
+    .menuContainer {
+        display: none;
+        height: 100%;
+        width: 30px;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    // mobile
+    .menuToggle {
+        display: none;
+    }
+
+    .menuButton,
+    .menuButton::before,
+    .menuButton::after {
+        display: block;
+        background: $color-gray;
+        position: absolute;
+        height: 4px;
+        width: 30px;
+        transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        border-radius: 2px;
+    }
+
+    .menuButton::before {
+        content: "";
+        margin-top: -8px;
+    }
+
+    .menuButton::after {
+        content: "";
+        margin-top: 8px;
+    }
+
+    .menuToggle:checked + .menuContainer .menuButton::before {
+        margin-top: 0px;
+        transform: rotate(45deg);
+    }
+
+    .menuToggle:checked + .menuContainer .menuButton {
+        background: $color-white;
+    }
+
+    .menuToggle:checked + .menuContainer .menuButton::after {
+        margin-top: 0px;
+        transform: rotate(-45deg);
+    }
+
+    @include max-md {
+        .menuButton {
+            right: 50px;
+            @include max-sm {
+                right: 25px;
+            }
+        }
+        .menuContainer {
+            display: flex;
+        }
+        .menu {
+            position: absolute;
+            top: 0;
+            margin-top: 80px;
+            left: 0;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            .menuLinks {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                padding: 5px 0;
+                width: 100%;
+                color: white;
+                background-color: $color-white;
+                .linkButton {
+                    color: $color-gray;
+                }
+            }
+        }
+
+        .menuToggle ~ .menu .menuLinks {
+            height: 0;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        .menuToggle:checked ~ .menu .menuLinks {
+            height: 60px;
+            padding: 10px;
+            margin-top: -1px;
+            transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
         }
     }
 }

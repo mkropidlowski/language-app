@@ -3,11 +3,13 @@
 
 .content {
     position: absolute;
-    // height: 100vh;
     top: 250px;
     max-width: 700px;
     z-index: 1;
     padding: 20px;
+    @include max-md {
+        top: 200px;
+    }
     .contentHeading {
         color: $color-white;
     }

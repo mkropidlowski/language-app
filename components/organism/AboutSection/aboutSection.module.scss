@@ -14,6 +14,10 @@
         flex-direction: column;
         top: 0;
     }
+    @include max-sm {
+        top: 50px;
+        align-items: center;
+    }
     .image {
         margin-top: 100px;
         @include lg {
