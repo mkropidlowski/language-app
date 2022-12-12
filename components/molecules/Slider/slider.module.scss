@@ -14,14 +14,25 @@
     @include lg {
         margin-top: 0;
         gap: 30px;
+        width: 320px;
         height: 50vh;
+        flex-direction: column;
     }
     .image {
         border-radius: 10px;
     }
-    .arrow {
-        cursor: pointer;
+    .arrowBox {
+        display: flex;
+        width: 200px;
+        justify-content: space-around;
+        .arrow {
+            cursor: pointer;
+        }
+        .rightArrow {
+            rotate: 180deg;
+        }
     }
+
     .slide {
         opacity: 0;
         transition-duration: 1s ease;

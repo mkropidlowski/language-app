@@ -1,7 +1,7 @@
 import { FC, HTMLProps, useId, useState } from "react";
 import style from "./slider.module.scss";
 import Image from "next/image";
-import { LeftArrow, RightArrow } from "../../icons";
+import { Arrow } from "../../icons";
 import clsx from "clsx";
 
 export interface Props {
@@ -31,7 +31,6 @@ const Slider: FC<Props & HTMLProps<HTMLImageElement>> = ({ slides }) => {
 
     return (
         <div className={style.slider} id="galery">
-            <LeftArrow width={"44px"} height={"44px"} className={style.arrow} onClick={prevSlide} />
             <div className={style.slideItem}>
                 {slides.map((item, i) => (
                     <div key={`${id}-${i}`} className={clsx(i === current ? style.slide && style.acive : style.slide)}>
@@ -47,7 +46,20 @@ const Slider: FC<Props & HTMLProps<HTMLImageElement>> = ({ slides }) => {
                     </div>
                 ))}
             </div>
-            <RightArrow width={"44px"} height={"44px"} className={style.arrow} onClick={nextSlide} />
+            <div className={style.arrowBox}>
+                <Arrow
+                    width={"44px"}
+                    height={"44px"}
+                    className={clsx(style.leftArrow, style.arrow)}
+                    onClick={prevSlide}
+                />
+                <Arrow
+                    width={"44px"}
+                    height={"44px"}
+                    className={clsx(style.rightArrow, style.arrow)}
+                    onClick={nextSlide}
+                />
+            </div>
         </div>
     );
 };

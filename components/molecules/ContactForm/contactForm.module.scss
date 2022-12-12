@@ -10,6 +10,7 @@
     margin: 100px 0 100px;
     @include lg {
         margin: 0 0 100px;
+        scroll-margin-top: 100px;
     }
     .form {
         display: flex;
