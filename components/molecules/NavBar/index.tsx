@@ -24,7 +24,6 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({
     links = menuLinks,
     className,
     shouldNavbarBeTransparentOnLoad = false,
-    disableTransparentWhenMobile = false,
 }) => {
     const [isMobile, setIsMobile] = useState(false);
     const isMobileDevice = useMediaQuery(BREAKPOINT["MAX-MD"]);
