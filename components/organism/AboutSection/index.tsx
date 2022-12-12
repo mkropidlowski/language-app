@@ -12,7 +12,7 @@ const AboutSection: FC<Props & HTMLProps<HTMLDivElement>> = ({ className }) => {
         <div className={style.wrapper} id="about">
             <AboutContent />
             <div className={style.image}>
-                <Image src="/images/undraw_exams.svg" alt="writing tests" width="400px" height="400px" />
+                <Image src="/images/undraw_exams.svg" alt="writing tests" width="380px" height="380px" />
             </div>
         </div>
     );

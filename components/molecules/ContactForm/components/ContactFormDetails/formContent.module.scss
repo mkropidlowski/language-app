@@ -1,12 +1,23 @@
 @import "/styles/_variables.scss";
+@import "./styles/_breakpoints.scss";
 
 .content {
     width: 360px;
+    @include max-sm {
+        width: auto;
+        .image {
+            width: 260px;
+        }
+    }
     .contentText {
         margin-top: 20px;
     }
     .socialMediaIcon {
         margin-top: 25px;
         padding: 5px;
+        @include max-sm {
+            display: flex;
+            justify-content: space-around;
+        }
     }
 }

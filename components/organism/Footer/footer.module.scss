@@ -8,22 +8,21 @@
     margin: 0 auto;
     @include lg {
         justify-content: center;
-    }
-    .footerLogo {
-        display: flex;
-        align-items: flex-start;
-        @include lg {
-            .footerLogo {
-                align-items: unset;
-                justify-content: center;
-            }
+        .footerLogo {
+            justify-content: center;
         }
     }
+
     .footerContainer {
         height: 400px;
         display: flex;
         justify-content: center;
         margin-top: 50px;
+        @include max-sm {
+            justify-content: unset;
+            height: fit-content;
+            margin-bottom: 70px;
+        }
         .columnContainer {
             padding: 10px;
             display: flex;

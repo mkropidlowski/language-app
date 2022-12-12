@@ -7,7 +7,7 @@ export const AboutContent = () => {
     const ID = useId();
     return (
         <div className={style.content}>
-            <Heading variant="h2" bold>
+            <Heading variant="h2" bold className={style.heading}>
                 {heading}
             </Heading>
             <div className={style.desciption}>

@@ -13,8 +13,8 @@ const Home: NextPage = () => {
             <PageLayout title="Language App" description="Małgorzata Langowska" shouldNavbarBeTransparentOnLoad>
                 <Hero />
                 <AboutSection />
-                {/* <Slider slides={SliderLinks} /> */}
-                {/* <ContactForm /> */}
+                <Slider slides={SliderLinks} />
+                <ContactForm />
             </PageLayout>
         </>
     );

@@ -13,9 +13,9 @@
     @include lg {
         flex-direction: column;
         top: 0;
+        height: fit-content;
     }
     @include max-sm {
-        top: 50px;
         align-items: center;
     }
     .image {
@@ -23,7 +23,11 @@
         @include lg {
             display: flex;
             justify-content: center;
-            margin-top: 0;
+            margin: -50px 0 100px;
+        }
+        img {
+            width: 290px !important;
+            height: 290px !important;
         }
     }
 }

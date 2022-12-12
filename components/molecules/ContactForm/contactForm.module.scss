@@ -1,6 +1,6 @@
 @import "/styles/_variables.scss";
 @import "./styles/_breakpoints.scss";
-// todo mobile
+
 .contactWrapper {
     max-width: $page-max-width;
     display: flex;
@@ -21,6 +21,11 @@
         background-color: $color-white;
         box-shadow: 0px 10px 20px -9px rgba(91, 97, 160, 1);
         border-radius: 30px;
+        @include max-sm {
+            gap: 0;
+            flex-direction: column;
+            width: 320px;
+        }
     }
     .leftColumn {
         display: flex;
