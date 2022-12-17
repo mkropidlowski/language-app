@@ -59,6 +59,10 @@
             border-radius: $border-radius-primary;
         }
     }
+    .additionalBtnBox {
+        display: flex;
+        gap: 10px;
+    }
 
     .menuContainer {
         display: none;

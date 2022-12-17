@@ -7,6 +7,7 @@ import { useLogin } from "hooks/useLogin";
 import { useForm } from "react-hook-form";
 import Heading from "components/atoms/Heading";
 import Link from "next/link";
+import { useSignUp } from "hooks/useSignup";
 
 export interface RegisterFormProps {
     email: string;
@@ -15,7 +16,7 @@ export interface RegisterFormProps {
 
 const RegisterForm: FC = () => {
     const route = useRouter();
-    const { signIn, error, isPending } = useLogin(null);
+    const { signUp, error, isPending } = useSignUp(null);
     const {
         register,
         getValues,
@@ -25,7 +26,7 @@ const RegisterForm: FC = () => {
 
     const registerForm = () => {
         const formData = getValues();
-        signIn(formData.email, formData.password);
+        signUp(formData.email, formData.password);
     };
 
     return (
@@ -61,7 +62,7 @@ const RegisterForm: FC = () => {
                 />
                 <div className={style.formButtonBox}>
                     <Button type="submit" color="secondary" buttonSize="small" className={style.registerButton}>
-                        Załóż konto
+                        {isPending}Załóż konto
                     </Button>
                 </div>
 

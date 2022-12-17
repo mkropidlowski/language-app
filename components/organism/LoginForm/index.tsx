@@ -15,7 +15,7 @@ export interface LoginFormProps {
 }
 
 const LoginForm: FC = () => {
-    const route = useRouter();
+    const router = useRouter();
     const { signIn, error, isPending } = useLogin(null);
     const {
         register,
@@ -27,6 +27,7 @@ const LoginForm: FC = () => {
     const submitForm = () => {
         const formData = getValues();
         signIn(formData.email, formData.password);
+        router.push("/panel_uzytkownika");
     };
 
     return (

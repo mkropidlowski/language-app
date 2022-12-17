@@ -9,6 +9,7 @@ import { useActiveNavbarHook } from "hooks/useActiveNavbarHook";
 import { BREAKPOINT } from "./types";
 import useMediaQuery from "hooks/useMediaQuery";
 import { useHideMobileMenu } from "hooks/useHideMobileMenu";
+import { useAuthContext } from "hooks/useAuthContext";
 
 export interface Props {
     links?: Props[];
@@ -27,7 +28,9 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({
     const isMobileDevice = useMediaQuery(BREAKPOINT["MAX-MD"]);
     const isNavbarActive = useActiveNavbarHook();
     const isNavbarHide = useHideMobileMenu();
+    const { user } = useAuthContext();
 
+    console.log("Witaj", user);
     useEffect(() => {
         if (isMobileDevice) {
             setIsMobile(true);
@@ -71,14 +74,34 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({
                         </li>
                     );
                 })}
+
                 <li className={clsx(style.loginButton, style.menuLinks)}>
-                    <Link href="/logowanie">
-                        <a>
-                            <Button type="button" color="secondary" buttonSize="small">
-                                Zaloguj
-                            </Button>
-                        </a>
-                    </Link>
+                    {!user ? (
+                        <Link href="/logowanie">
+                            <a>
+                                <Button type="button" color="secondary" buttonSize="small">
+                                    Zaloguj
+                                </Button>
+                            </a>
+                        </Link>
+                    ) : (
+                        <div className={style.additionalBtnBox}>
+                            <Link href="/panel_uzytkownika">
+                                <a>
+                                    <Button type="button" color="primary" buttonSize="small">
+                                        Panel
+                                    </Button>
+                                </a>
+                            </Link>
+                            <Link href="/wyloguj">
+                                <a>
+                                    <Button type="button" color="secondary" buttonSize="small">
+                                        Wyloguj
+                                    </Button>
+                                </a>
+                            </Link>
+                        </div>
+                    )}
                 </li>
             </ul>
         </nav>
