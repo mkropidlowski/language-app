@@ -1,7 +1,7 @@
 import Heading from "../../../atoms/Heading";
 import { useId } from "react";
 import style from "./aboutContent.module.scss";
-import { heading, descriptionTitle, description } from "../../../../config/section/data";
+import { heading, descriptionTitle, description } from "config/section/data";
 
 export const AboutContent = () => {
     const ID = useId();

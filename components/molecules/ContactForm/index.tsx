@@ -1,11 +1,12 @@
 import { FC, useState } from "react";
 import style from "./contactForm.module.scss";
 import { useForm } from "react-hook-form";
-import Input from "../../atoms/Input";
+import Input from "components/atoms/Input";
 import { contactFormField, contactFormResponseStatuses, ResponseStatus } from "./data/data";
-import Button from "../../atoms/Button";
-import Textarea from "../../atoms/Textarea";
+import Button from "components/atoms/Button";
+import Textarea from "components/atoms/Textarea";
 import { FormContent } from "./components/ContactFormDetails/FormContent";
+import { sendMessage } from "modules/contatc/services";
 
 export interface ContactFormProps {
     sender_emial?: string;
@@ -25,7 +26,14 @@ const ContactForm: FC = () => {
 
     const submitForm = async () => {
         const formData = getValues();
-        console.log(formData);
+
+        setResponseStatus("pending");
+        try {
+            await sendMessage(formData);
+            setResponseStatus("sent");
+        } catch {
+            setResponseStatus("error");
+        }
     };
     return (
         <div className={style.contactWrapper} id="contact">

@@ -1,7 +1,7 @@
 import { FC, HTMLProps, useId, useState } from "react";
 import style from "./slider.module.scss";
 import Image from "next/image";
-import { Arrow } from "../../icons";
+import { Arrow } from "components/icons";
 import clsx from "clsx";
 
 export interface Props {

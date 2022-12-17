@@ -1,8 +1,8 @@
-import Heading from "../../../../atoms/Heading";
+import Heading from "components/atoms/Heading";
 import style from "./formContent.module.scss";
-import { formHeading, formContentText } from "../../../../../config/form/data";
+import { formHeading, formContentText } from "config/form/data";
 import { SocialButton } from "../SocialButtons/SocialButons";
-import Newsletter from "../../../../icons/Newsletter";
+import Newsletter from "components/icons/Newsletter";
 
 export const FormContent = () => (
     <div className={style.content}>

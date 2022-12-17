@@ -1,7 +1,7 @@
 import Image from "next/image";
 import style from "./heroImage.module.scss";
-import heroBackground from "../../../../../public/images/classroombg.jpeg";
-import herofilter from "../../../../../public/images/filter.png";
+import heroBackground from "public/images/classroombg.jpeg";
+import herofilter from "public/images/filter.png";
 
 const HeroImage = () => (
     <>

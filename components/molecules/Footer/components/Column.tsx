@@ -1,4 +1,4 @@
-import Heading from "../../../atoms/Heading";
+import Heading from "components/atoms/Heading";
 import { FC, HTMLProps, useId } from "react";
 import style from "./column.module.scss";
 

@@ -1,6 +1,6 @@
 import { FC, HTMLProps } from "react";
 import Image from "next/image";
-import Heading from "../../atoms/Heading";
+import Heading from "components/atoms/Heading";
 import Link from "next/link";
 import style from "./logo.module.scss";
 import clsx from "clsx";

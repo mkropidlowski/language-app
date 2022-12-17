@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { ChangeEvent, forwardRef, HTMLProps } from "react";
-import Label from "../Label";
+import Label from "components/atoms/Label";
 import style from "./input.module.scss";
 
 export type InputTypeProps = "text" | "password" | "email" | "number" | "hidden";

@@ -12,13 +12,21 @@
     align-items: center;
     flex-direction: column;
     gap: 60px;
-    @include lg {
+    @include max-lg {
         margin-top: 0;
         gap: 30px;
-        width: 320px;
+        width: 720px;
         height: 50vh;
         flex-direction: column;
+        @include max-sm {
+            margin-top: 0;
+            gap: 30px;
+            width: 320px;
+            height: 50vh;
+            flex-direction: column;
+        }
     }
+
     .image {
         border-radius: 10px;
     }

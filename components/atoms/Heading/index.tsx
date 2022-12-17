@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { FC, HTMLProps } from "react";
-import style from "../Heading/heading.module.scss";
+import style from "./heading.module.scss";
 
 export type HeadingVariants = "h1" | "h2" | "h3" | "h4";
 

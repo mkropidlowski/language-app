@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { ChangeEvent, FC, forwardRef, HTMLProps } from "react";
-import Label from "../Label";
+import { ChangeEvent, forwardRef, HTMLProps } from "react";
+import Label from "components/atoms/Label";
 import style from "./textarea.module.scss";
 
 export interface Props {

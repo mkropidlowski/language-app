@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    @include lg {
+    @include max-lg {
         justify-content: center;
         .footerLogo {
             justify-content: center;
@@ -26,7 +26,7 @@
         .columnContainer {
             padding: 10px;
             display: flex;
-            @include lg {
+            @include max-lg {
                 flex-direction: column;
             }
         }

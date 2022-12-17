@@ -1,7 +1,13 @@
-import '../styles/index.scss'
+import { AuthContextProvider } from "context/AuthContext";
+import React from "react";
+import "../styles/index.scss";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+    return (
+        <AuthContextProvider>
+            <Component {...pageProps} />;
+        </AuthContextProvider>
+    );
 }
 
-export default MyApp
+export default MyApp;

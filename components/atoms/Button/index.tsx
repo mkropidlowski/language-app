@@ -1,5 +1,5 @@
 import React, { FC, HTMLProps } from "react";
-import style from "../Button/button.module.scss";
+import style from "./button.module.scss";
 import clsx from "clsx";
 import capitalize from "lodash/capitalize";
 

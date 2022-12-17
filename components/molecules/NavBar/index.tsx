@@ -1,33 +1,32 @@
 import { FC, HTMLProps, useEffect, useState } from "react";
-import style from "../NavBar/navBar.module.scss";
+import style from "./navBar.module.scss";
 import Link from "next/link";
-import { menuLinks } from "../../../config/navbar/data";
-import Button from "../../atoms/Button";
-import Logo from "../../atoms/Logo";
+import { menuLinks } from "config/navbar/data";
+import Button from "components/atoms/Button";
+import Logo from "components/atoms/Logo";
 import clsx from "clsx";
-import { useActiveNavbarHook } from "../../../hooks/useActiveNavbarHook";
+import { useActiveNavbarHook } from "hooks/useActiveNavbarHook";
 import { BREAKPOINT } from "./types";
-import useMediaQuery from "../../../hooks/useMediaQuery";
+import useMediaQuery from "hooks/useMediaQuery";
+import { useHideMobileMenu } from "hooks/useHideMobileMenu";
 
 export interface Props {
     links?: Props[];
     text?: string;
     shouldNavbarBeTransparentOnLoad?: boolean;
-    disableTransparentWhenMobile?: boolean;
-}
-
-export interface LinksProps {
-    text?: string;
+    hideNavbar?: boolean;
 }
 
 const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({
     links = menuLinks,
     className,
     shouldNavbarBeTransparentOnLoad = false,
+    hideNavbar = false,
 }) => {
     const [isMobile, setIsMobile] = useState(false);
     const isMobileDevice = useMediaQuery(BREAKPOINT["MAX-MD"]);
     const isNavbarActive = useActiveNavbarHook();
+    const isNavbarHide = useHideMobileMenu();
 
     useEffect(() => {
         if (isMobileDevice) {
@@ -40,7 +39,6 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({
             className={clsx(
                 style.wrapper,
                 shouldNavbarBeTransparentOnLoad && !isNavbarActive && style.active,
-                isMobile ? !!isNavbarActive : null,
                 className
             )}
         >
@@ -49,7 +47,7 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({
                 <>
                     <input className={style.menuToggle} type="checkbox" id="menuToggle" />
                     <label className={style.menuContainer} htmlFor="menuToggle">
-                        <div className={style.menuButton}></div>
+                        <div className={clsx(style.menuButton, hideNavbar && !isNavbarHide && style.menuDefault)}></div>
                     </label>
                 </>
             ) : null}
@@ -74,7 +72,7 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({
                     );
                 })}
                 <li className={clsx(style.loginButton, style.menuLinks)}>
-                    <Link href="/login">
+                    <Link href="/logowanie">
                         <a>
                             <Button type="button" color="secondary" buttonSize="small">
                                 Zaloguj

@@ -1,8 +1,8 @@
 import { FC, HTMLProps, useId } from "react";
-import Logo from "../../atoms/Logo";
+import Logo from "components/atoms/Logo";
 import style from "./footer.module.scss";
-import { Column } from "./components/Column";
-import { ColumnLinks } from "../../../config/footer/data";
+import { Column } from "components/molecules/Footer/components/Column";
+import { ColumnLinks } from "config/footer/data";
 
 export interface Props {
     heading?: string;
