@@ -6,10 +6,6 @@ import Slider from "components/molecules/Slider";
 import { SliderLinks } from "components/molecules/Slider/data/SliderLinks";
 import PageLayout from "components/molecules/PageLayout";
 import ContactForm from "components/molecules/ContactForm";
-import { AuthProvider } from "modules/user/login/AuthContext-copy";
-import { AuthContextProvider } from "context/AuthContext";
-// import { UserContext } from "hooks/useContext-test";
-// import { useAuth } from "hooks/useAuth-test";
 
 const Home: NextPage = () => {
     return (
