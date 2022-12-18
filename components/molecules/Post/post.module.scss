@@ -1,0 +1,26 @@
+@import "/styles/_variables.scss";
+@import "./styles/_breakpoints.scss";
+
+.wrapper {
+    width: 450px;
+    height: auto;
+    padding: 20px;
+    background: #e2e6ec;
+    transition: 0.3s;
+    border-radius: 10px;
+    .heading {
+        padding: 10px;
+    }
+    .postAuthor {
+        font-size: 13px;
+        color: gray;
+    }
+    .postContent {
+        padding: 10px;
+    }
+}
+
+.wrapper:hover {
+    cursor: pointer;
+    background: #cacfd6;
+}

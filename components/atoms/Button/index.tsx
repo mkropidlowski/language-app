@@ -32,7 +32,7 @@ const Button: FC<Props & HTMLProps<HTMLButtonElement>> = ({
         )}
         {...rest}
     >
-        {children}
+        <span className={style.btnChildren}>{children}</span>
     </button>
 );
 

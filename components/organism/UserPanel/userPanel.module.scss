@@ -2,7 +2,37 @@
 @import "./styles/_breakpoints.scss";
 
 .wrapper {
-    .heading {
-        margin-top: 50px;
+    max-width: $page-max-width;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    .leftColumn {
+        max-width: 300px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: $color-ligth-gray-heading;
+        border-radius: 15px;
+        padding: 20px;
+        .heading {
+            text-align: center;
+        }
+        .menu {
+            margin-top: 25px;
+            .menuLinks {
+                list-style-type: none;
+                max-width: 230px;
+                padding: 5px;
+                .linkButton {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .rightColumn {
+        width: 100%;
+        height: fit-content;
     }
 }

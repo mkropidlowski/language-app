@@ -5,7 +5,7 @@ import "../styles/index.scss";
 function MyApp({ Component, pageProps }) {
     return (
         <AuthContextProvider>
-            <Component {...pageProps} />;
+            <Component {...pageProps} />
         </AuthContextProvider>
     );
 }
