@@ -15,7 +15,7 @@ export interface PostProps {
     content: string;
     author: string;
 }
-const PostSection: FC<Props> = ({ className, postData = fakeJson }) => {
+const PostSection: FC<Props> = ({ postData = fakeJson }) => {
     return (
         <div className={style.wrapper}>
             <Heading variant="h3" bold className={style.heading}>

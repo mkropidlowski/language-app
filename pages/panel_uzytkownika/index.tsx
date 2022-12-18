@@ -9,7 +9,7 @@ const UserPanelPage: NextPage = () => (
     <>
         <SeoData title="Language-App" description="Rejestracja w portalu Laguage-App" />
         <NavBar className={style.nav} />
-        <UserPanel className={style.panel} />
+        <UserPanel />
     </>
 );
 
