@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { publicEnvs } from "config/envs";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: publicEnvs.FIREBASE_API_KEY,
@@ -13,6 +14,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
+export const auth = getAuth();
 export const initFirebase = () => {
     return app;
 };
