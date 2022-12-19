@@ -12,4 +12,32 @@
     padding: 10px;
     border-radius: 20px;
     border: 1px solid $color-gray;
+    letter-spacing: 0.2px;
+    &:disabled {
+        border: 1px solid $color-gray;
+        background: $color-gray;
+    }
+    &:active {
+        border: 1px solid $color-gray;
+    }
+    &:hover {
+        border: 1px solid $color-blue;
+    }
+    &:focus {
+        border: 1px solid $color-blue;
+    }
+}
+
+.activeInput-true {
+    border: 1px solid $color-blue;
+}
+.errorMessage {
+    color: $color-red;
+    position: absolute;
+    font-size: 12px;
+    margin-top: 90px;
+
+    &:active {
+        border: 1px solid $color-red;
+    }
 }

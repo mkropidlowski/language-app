@@ -7,6 +7,8 @@ import Button from "components/atoms/Button";
 import Textarea from "components/atoms/Textarea";
 import { FormContent } from "./components/ContactFormDetails/FormContent";
 import { sendMessage } from "modules/contatc/services";
+import { validationSchema } from "./data/validation";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 export interface ContactFormProps {
     sender_emial?: string;
@@ -22,7 +24,7 @@ const ContactForm: FC = () => {
         handleSubmit,
         getValues,
         formState: { errors },
-    } = useForm<ContactFormProps>({ mode: "all" });
+    } = useForm<ContactFormProps>({ mode: "all", resolver: yupResolver(validationSchema) });
 
     const submitForm = async () => {
         const formData = getValues();
@@ -53,6 +55,8 @@ const ContactForm: FC = () => {
                                 type="text"
                                 label={label}
                                 {...register(formInputKey)}
+                                error={!!errors[formInputKey]?.message}
+                                errorText={errors[formInputKey]?.message}
                                 shouldRenderLabel
                                 required
                             />

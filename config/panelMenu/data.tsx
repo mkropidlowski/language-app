@@ -2,6 +2,7 @@ import UserSection from "components/organism/UserSection";
 import PostSection from "components/organism/PostSection";
 
 export const panelHeading = "Panel zarządzania";
+export const greetingText = "Witaj: ";
 
 export const panelMenuLinks = {
     newPost: {

@@ -13,7 +13,7 @@ export interface Props {
     error?: boolean;
     errorText?: string;
     defaultValue?: string | number;
-    isError?: boolean;
+    isError?: string | boolean;
     shouldRenderLabel?: boolean;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -42,10 +42,10 @@ const Input = forwardRef<HTMLInputElement, Props & HTMLProps<HTMLInputElement>>(
         const inputPlaceholder = `${label}`;
         return (
             <div className={style.inputWrapper}>
-                {isError ? <div className={style.errorMessage}>{errorText}</div> : null}
+                {isError ? <div className={clsx(style.errorMessage, className)}>{errorText}</div> : null}
                 {shouldRenderLabel ? <Label className={style.label} text={inputPlaceholder} /> : null}
                 <input
-                    className={clsx(style.input)}
+                    className={clsx(style.input, style[`activeInput-${!!inputHandler}`])}
                     type={type}
                     id={id}
                     name={name}

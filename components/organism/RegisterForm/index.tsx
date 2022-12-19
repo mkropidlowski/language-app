@@ -2,12 +2,12 @@ import Input from "components/atoms/Input";
 import { FC } from "react";
 import style from "./registerForm.module.scss";
 import Button from "components/atoms/Button";
-import { useRouter } from "next/router";
-import { useLogin } from "hooks/useLogin";
 import { useForm } from "react-hook-form";
 import Heading from "components/atoms/Heading";
 import Link from "next/link";
 import { useSignUp } from "hooks/useSignup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { validationSchema } from "./validation/validationSchema";
 
 export interface RegisterFormProps {
     email: string;
@@ -15,14 +15,13 @@ export interface RegisterFormProps {
 }
 
 const RegisterForm: FC = () => {
-    const route = useRouter();
     const { signUp, error, isPending } = useSignUp(null);
     const {
         register,
         getValues,
         handleSubmit,
         formState: { errors },
-    } = useForm<RegisterFormProps>({ mode: "all" });
+    } = useForm<RegisterFormProps>({ mode: "all", resolver: yupResolver(validationSchema) });
 
     const registerForm = () => {
         const formData = getValues();

@@ -10,6 +10,7 @@ import { BREAKPOINT } from "./types";
 import useMediaQuery from "hooks/useMediaQuery";
 import { useHideMobileMenu } from "hooks/useHideMobileMenu";
 import { useAuthContext } from "hooks/useAuthContext";
+import { useLogout } from "hooks/useLogout";
 
 export interface Props {
     links?: Props[];
@@ -29,6 +30,7 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({
     const isNavbarActive = useActiveNavbarHook();
     const isNavbarHide = useHideMobileMenu();
     const { user } = useAuthContext();
+    const { logout } = useLogout(user);
 
     console.log("Witaj", user);
     useEffect(() => {
@@ -93,13 +95,9 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({
                                     </Button>
                                 </a>
                             </Link>
-                            <Link href="/wyloguj">
-                                <a>
-                                    <Button type="button" color="secondary" buttonSize="small">
-                                        Wyloguj
-                                    </Button>
-                                </a>
-                            </Link>
+                            <Button type="button" color="secondary" buttonSize="small" onClick={logout}>
+                                Wyloguj
+                            </Button>
                         </div>
                     )}
                 </li>

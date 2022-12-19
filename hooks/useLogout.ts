@@ -1,22 +1,15 @@
 import { useRouter } from "next/router";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { initFirebase } from "config/firebase/firebaseApp";
 import { getAuth } from "firebase/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
-export interface SignUpFormProps {
-    email: string;
-    password: string;
-}
-
 export interface UseLoginResult {
-    signUp: (email: string, password: string) => Promise<void>;
     error?: any;
     isPending?: boolean;
 }
 
-export const useSignUp = (props: SignUpFormProps): UseLoginResult => {
+export const useLogout = (props: UseLoginResult) => {
     const [isCancelled, setIsCancelled] = useState(false);
     const [error, setError] = useState(false);
     const [isPending, setIsPending] = useState(false);
@@ -26,27 +19,30 @@ export const useSignUp = (props: SignUpFormProps): UseLoginResult => {
     initFirebase();
     const auth = getAuth();
 
-    const signUp = async (email: string, password: string): Promise<void> => {
+    const logout = async () => {
         setError(null);
         setIsPending(true);
 
         try {
-            const res = await createUserWithEmailAndPassword(auth, email, password);
-            if (!res) {
-                throw new Error("Could not complete signup");
-            }
-            dispatch({ type: "LOGIN", payload: res.user });
-            router.push("/panel_uzytkownika");
+            await auth.signOut();
+
+            dispatch({ type: "LOGOUT" });
+
             if (!isCancelled) {
                 setIsPending(false);
                 setError(null);
+                router.push("/");
             }
         } catch (error) {
             if (!isCancelled) {
                 setIsPending(false);
-                setError(true);
+                setError(error);
             }
         }
     };
-    return { signUp, error, isPending };
+    useEffect(() => {
+        return () => setIsCancelled(true);
+    }, []);
+
+    return { logout, error, isPending };
 };

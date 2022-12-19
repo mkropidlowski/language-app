@@ -5,6 +5,8 @@ import Button from "components/atoms/Button";
 import { useRouter } from "next/router";
 import { useLogin } from "hooks/useLogin";
 import { useForm } from "react-hook-form";
+import { validationSchema } from "./validation/validationSchema";
+import { yupResolver } from "@hookform/resolvers/yup";
 import Heading from "components/atoms/Heading";
 import Link from "next/link";
 import clsx from "clsx";
@@ -22,7 +24,7 @@ const LoginForm: FC = () => {
         getValues,
         handleSubmit,
         formState: { errors },
-    } = useForm<LoginFormProps>({ mode: "all" });
+    } = useForm<LoginFormProps>({ mode: "all", resolver: yupResolver(validationSchema) });
 
     const submitForm = () => {
         const formData = getValues();
@@ -55,8 +57,8 @@ const LoginForm: FC = () => {
                 <Input
                     type="password"
                     {...register("password")}
-                    error={!!errors.email?.message}
-                    errorText={errors.email?.message}
+                    error={!!errors.password?.message}
+                    errorText={errors.password?.message}
                     label="Hasło: "
                     shouldRenderLabel
                     required
