@@ -9,6 +9,9 @@
         background: #e2e6ec;
         border-radius: 5px;
         margin-top: 40px;
+        @include max-md {
+            width: 320px;
+        }
         .viewHeading {
             padding: 10px;
         }
@@ -22,5 +25,8 @@
             letter-spacing: 0.3px;
             text-align: justify;
         }
+    }
+    @include max-md {
+        margin-top: 30px;
     }
 }
