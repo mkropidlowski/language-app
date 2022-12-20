@@ -1,18 +1,16 @@
 @import "styles/variables.scss";
 @import "styles/breakpoints";
-.wrapper {
-    width: 100%;
-    .posts {
-        display: flex;
-        flex-flow: wrap;
-        justify-content: center;
-        align-items: flex-start;
-        margin-top: 50px;
-        gap: 15px;
-    }
-    .heading {
-        background: $color-ligth-gray-heading;
-        border-radius: 15px;
-        padding: 20px;
-    }
+
+.posts {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 50px;
+    gap: 15px;
+}
+.heading {
+    background: $color-ligth-gray-heading;
+    border-radius: 15px;
+    padding: 20px;
 }

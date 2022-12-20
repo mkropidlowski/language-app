@@ -1,20 +1,12 @@
-import Heading from "components/atoms/Heading";
+import SectionLayout from "components/molecules/SectionLayout";
 import UserTable from "components/molecules/UserTable";
-import { FC, HTMLProps, ReactNode } from "react";
-import style from "./userSection.module.scss";
+import { userSectionHeader } from "config/panelSection/data";
+import { FC } from "react";
 
-export interface Props {
-    className?: string;
-    children?: ReactNode;
-}
-
-const UserSection: FC<Props & HTMLProps<HTMLDivElement>> = ({ className, children }) => (
-    <div className={style.wrapper}>
-        <Heading variant="h3" bold className={style.heading}>
-            Użytkownicy
-        </Heading>
+const UserSection: FC = () => (
+    <SectionLayout heading={userSectionHeader}>
         <UserTable />
-    </div>
+    </SectionLayout>
 );
 
 export default UserSection;

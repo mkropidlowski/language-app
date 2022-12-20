@@ -1,8 +1,10 @@
 import axios from "axios";
 import Heading from "components/atoms/Heading";
 import EmailBox from "components/molecules/EmailBox";
+import SectionLayout from "components/molecules/SectionLayout";
 import { publicEnvs } from "config/envs";
 import { errorTextForDataCouldntFetch } from "config/errorsText/data";
+import { inboxSectionHeader } from "config/panelSection/data";
 import { useState } from "react";
 import ErrorPage from "../ErrorPage";
 import style from "./inboxSection.module.scss";
@@ -23,10 +25,7 @@ const InboxSection = () => {
         });
 
     return (
-        <div className={style.wrapper}>
-            <Heading variant="h3" className={style.heading}>
-                Skrzynka wiadomości
-            </Heading>
+        <SectionLayout heading={inboxSectionHeader}>
             {error ? (
                 <ErrorPage
                     errorHeading={errorTextForDataCouldntFetch.errorHeading}
@@ -43,7 +42,7 @@ const InboxSection = () => {
                     })}
                 </div>
             )}
-        </div>
+        </SectionLayout>
     );
 };
 
