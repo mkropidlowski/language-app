@@ -6,6 +6,9 @@
     flex-direction: column;
     margin-top: 40px;
     gap: 5px;
+    @include max-md {
+        align-items: center;
+    }
 }
 .heading {
     background: $color-ligth-gray-heading;

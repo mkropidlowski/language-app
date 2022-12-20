@@ -8,6 +8,9 @@
     background: #e2e6ec;
     transition: 0.3s;
     border-radius: 10px;
+    @include max-md {
+        width: 320px;
+    }
     .heading {
         padding: 10px;
     }

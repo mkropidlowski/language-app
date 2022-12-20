@@ -5,17 +5,26 @@
     max-width: $page-max-width;
     margin: 50px auto;
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: space-around;
+    gap: 40px;
+    @include max-md {
+        flex-direction: column;
+        align-items: center;
+    }
     .leftColumn {
         max-width: 300px;
         height: fit-content;
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
+        left: 10px;
         background: $color-ligth-gray-heading;
         border-radius: 15px;
         padding: 20px;
+        @include max-md {
+            left: 0;
+        }
         .heading {
             text-align: center;
             padding-top: 10px;
@@ -39,7 +48,13 @@
         }
     }
     .rightColumn {
+        position: relative;
+        right: 10px;
         width: 100%;
         height: fit-content;
+        @include max-md {
+            width: 90%;
+            right: 0;
+        }
     }
 }
