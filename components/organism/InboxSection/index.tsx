@@ -1,15 +1,15 @@
-import Heading from "components/atoms/Heading";
-import Post from "components/molecules/Post";
-import style from "./postSection.module.scss";
-import { FC, useState } from "react";
-import { publicEnvs } from "config/envs";
 import axios from "axios";
+import Heading from "components/atoms/Heading";
+import EmailBox from "components/molecules/EmailBox";
+import { publicEnvs } from "config/envs";
 import { errorTextForDataCouldntFetch } from "config/errorsText/data";
+import { useState } from "react";
 import ErrorPage from "../ErrorPage";
+import style from "./inboxSection.module.scss";
 
-const API = `${publicEnvs.BASE_URL_API}/posts`;
+const API = `${publicEnvs.BASE_URL_API}/emails`;
 
-const PostSection: FC = () => {
+const InboxSection = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState<boolean>(false);
     axios
@@ -24,8 +24,8 @@ const PostSection: FC = () => {
 
     return (
         <div className={style.wrapper}>
-            <Heading variant="h3" bold className={style.heading}>
-                Posty
+            <Heading variant="h3" className={style.heading}>
+                Skrzynka wiadomości
             </Heading>
             {error ? (
                 <ErrorPage
@@ -35,14 +35,16 @@ const PostSection: FC = () => {
                     errorHref={errorTextForDataCouldntFetch.errorRedirectHref}
                 />
             ) : (
-                <div className={style.posts}>
-                    {Object.values(data).map(({ heading, content, author }) => (
-                        <Post key={heading} heading={heading} content={content} author={author} />
-                    ))}
+                <div className={style.container}>
+                    {Object.values(data).map(({ name, sender_email, message }) => {
+                        return (
+                            <EmailBox key={sender_email} name={name} sender_email={sender_email} message={message} />
+                        );
+                    })}
                 </div>
             )}
         </div>
     );
 };
 
-export default PostSection;
+export default InboxSection;

@@ -5,8 +5,8 @@ import Button from "components/atoms/Button";
 import Heading from "components/atoms/Heading";
 import { panelHeading, panelMenuLinks, greetingText } from "config/panelMenu/data";
 import { useAuthContext } from "hooks/useAuthContext";
-import { useRouter } from "next/router";
 import ErrorPage from "../ErrorPage";
+import { errorTextIfUserAuthFail } from "config/errorsText/data";
 
 export interface Props {
     text?: string;
@@ -16,7 +16,6 @@ export interface Props {
 const UserPanel: FC<Props> = ({ links = panelMenuLinks }) => {
     const [section, setSection] = useState<JSX.Element>(null);
     const { user } = useAuthContext();
-    const router = useRouter();
 
     return (
         <>
@@ -53,7 +52,12 @@ const UserPanel: FC<Props> = ({ links = panelMenuLinks }) => {
                     </div>
                 </div>
             ) : (
-                <ErrorPage />
+                <ErrorPage
+                    errorHeading={errorTextIfUserAuthFail.errorHeading}
+                    shouldRedirectLink
+                    errorRedirectButtonText={errorTextIfUserAuthFail.errorRedirectButtonText}
+                    errorHref={errorTextIfUserAuthFail.errorRedirectHref}
+                />
             )}
         </>
     );

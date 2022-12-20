@@ -1,5 +1,8 @@
 import UserSection from "components/organism/UserSection";
 import PostSection from "components/organism/PostSection";
+import InboxSection from "components/organism/InboxSection";
+import AddPostForm from "components/molecules/AddPostForm";
+import AddPostSection from "components/organism/AddPostSection";
 
 export const panelHeading = "Panel zarządzania";
 export const greetingText = "Witaj: ";
@@ -7,16 +10,20 @@ export const greetingText = "Witaj: ";
 export const panelMenuLinks = {
     newPost: {
         text: "Dodaj post",
-        content: "Modal ADD POST",
+        content: <AddPostSection />,
         btnVariant: "primary",
     },
     users: {
-        text: "Lista uzytowników",
+        text: "Lista studentów",
         content: <UserSection />,
     },
     posts: {
         text: "Posty",
         content: <PostSection />,
+    },
+    emails: {
+        text: "Skrzynka odbiorcza",
+        content: <InboxSection />,
     },
     setting: {
         id: "settings",

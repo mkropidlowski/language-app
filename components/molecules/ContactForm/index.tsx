@@ -11,7 +11,7 @@ import { validationSchema } from "./data/validation";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 export interface ContactFormProps {
-    sender_emial?: string;
+    sender_email?: string;
     name?: string;
     message?: string;
 }
@@ -23,8 +23,12 @@ const ContactForm: FC = () => {
         register,
         handleSubmit,
         getValues,
+        reset,
         formState: { errors },
-    } = useForm<ContactFormProps>({ mode: "all", resolver: yupResolver(validationSchema) });
+    } = useForm<ContactFormProps>({
+        mode: "all",
+        resolver: yupResolver(validationSchema),
+    });
 
     const submitForm = async () => {
         const formData = getValues();
@@ -33,10 +37,12 @@ const ContactForm: FC = () => {
         try {
             await sendMessage(formData);
             setResponseStatus("sent");
+            reset();
         } catch {
             setResponseStatus("error");
         }
     };
+
     return (
         <div className={style.contactWrapper} id="contact">
             <form
@@ -54,6 +60,7 @@ const ContactForm: FC = () => {
                                 key={formKey}
                                 type="text"
                                 label={label}
+                                defaultValue={""}
                                 {...register(formInputKey)}
                                 error={!!errors[formInputKey]?.message}
                                 errorText={errors[formInputKey]?.message}

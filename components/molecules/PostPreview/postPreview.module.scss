@@ -1,0 +1,26 @@
+@import "/styles/_variables.scss";
+@import "./styles/_breakpoints.scss";
+
+.wrapper {
+    .content {
+        width: 500px;
+        height: fit-content;
+        padding: 20px;
+        background: #e2e6ec;
+        border-radius: 5px;
+        margin-top: 40px;
+        .viewHeading {
+            padding: 10px;
+        }
+        .viewAuthor {
+            font-size: 13px;
+            color: gray;
+        }
+
+        .viewContent {
+            padding: 20px;
+            letter-spacing: 0.3px;
+            text-align: justify;
+        }
+    }
+}
