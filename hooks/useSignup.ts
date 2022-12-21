@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { initFirebase } from "config/firebase/firebaseApp";
-import { getAuth } from "firebase/auth";
+import { auth } from "config/firebase/firebaseApp";
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
@@ -22,9 +21,6 @@ export const useSignUp = (props: SignUpFormProps): UseLoginResult => {
     const [isPending, setIsPending] = useState(false);
     const { dispatch } = useAuthContext();
     const router = useRouter();
-
-    initFirebase();
-    const auth = getAuth();
 
     const signUp = async (email: string, password: string): Promise<void> => {
         setError(null);

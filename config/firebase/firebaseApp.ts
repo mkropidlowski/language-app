@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app";
 import { publicEnvs } from "config/envs";
+import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
@@ -13,8 +13,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-export const auth = getAuth();
-export const initFirebase = () => {
-    return app;
-};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+export { auth };
+// export const initFirebase = () => {
+//     return app;
+// };

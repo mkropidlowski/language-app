@@ -37,6 +37,8 @@ const ContactForm: FC = () => {
         try {
             await sendMessage(formData);
             setResponseStatus("sent");
+            console.log("wysłano");
+
             reset();
         } catch {
             setResponseStatus("error");

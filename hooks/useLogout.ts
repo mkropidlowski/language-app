@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
-import { initFirebase } from "config/firebase/firebaseApp";
-import { getAuth } from "firebase/auth";
+import { auth } from "config/firebase/firebaseApp";
 import { useEffect, useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
@@ -15,9 +14,6 @@ export const useLogout = (props: UseLoginResult) => {
     const [isPending, setIsPending] = useState(false);
     const { dispatch } = useAuthContext();
     const router = useRouter();
-
-    initFirebase();
-    const auth = getAuth();
 
     const logout = async () => {
         setError(null);

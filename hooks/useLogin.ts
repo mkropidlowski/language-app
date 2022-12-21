@@ -1,6 +1,5 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { initFirebase } from "config/firebase/firebaseApp";
-import { getAuth } from "firebase/auth";
+import { auth } from "config/firebase/firebaseApp";
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
@@ -20,9 +19,6 @@ export const useLogin = (props: LoginFormProps): UseLoginResult => {
     const [error, setError] = useState(false);
     const [isPending, setIsPending] = useState(false);
     const { dispatch } = useAuthContext();
-
-    initFirebase();
-    const auth = getAuth();
 
     const signIn = async (email: string, password: string): Promise<void> => {
         setError(null);
