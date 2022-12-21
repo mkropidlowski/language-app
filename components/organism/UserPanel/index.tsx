@@ -5,8 +5,7 @@ import Button from "components/atoms/Button";
 import Heading from "components/atoms/Heading";
 import { panelHeading, panelMenuLinks, greetingText } from "config/panelMenu/data";
 import { useAuthContext } from "hooks/useAuthContext";
-import ErrorPage from "../ErrorPage";
-import { errorTextIfUserAuthFail } from "config/errorsText/data";
+import { Loading } from "components/icons";
 
 export interface Props {
     text?: string;
@@ -52,12 +51,7 @@ const UserPanel: FC<Props> = ({ links = panelMenuLinks }) => {
                     </div>
                 </div>
             ) : (
-                <ErrorPage
-                    errorHeading={errorTextIfUserAuthFail.errorHeading}
-                    shouldRedirectLink
-                    errorRedirectButtonText={errorTextIfUserAuthFail.errorRedirectButtonText}
-                    errorHref={errorTextIfUserAuthFail.errorRedirectHref}
-                />
+                <Loading />
             )}
         </>
     );

@@ -8,6 +8,7 @@ import Textarea from "components/atoms/Textarea";
 import Button from "components/atoms/Button";
 import { addPost } from "modules/addPost/services";
 import PostPreview from "../PostPreview";
+import { Loading } from "components/icons";
 
 export interface AddFormProps {
     heading?: string;
@@ -73,7 +74,7 @@ const AddPostForm: FC = () => {
                 <Textarea label={"Treść posta"} {...register("content")} shouldRenderLabel required />
 
                 <Button type="submit" color="primary">
-                    Dodaj posta
+                    Dodaj post
                 </Button>
             </form>
             <div className={style.livePreviewBox}>

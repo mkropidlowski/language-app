@@ -1,5 +1,5 @@
 import axios from "axios";
-import Heading from "components/atoms/Heading";
+import { Loading } from "components/icons";
 import EmailBox from "components/molecules/EmailBox";
 import SectionLayout from "components/molecules/SectionLayout";
 import { publicEnvs } from "config/envs";
@@ -22,17 +22,18 @@ const InboxSection = () => {
         })
         .catch(() => {
             setError(true);
+            // <ErrorPage
+            //     errorHeading={errorTextForDataCouldntFetch.errorHeading}
+            //     shouldRedirectLink
+            //     errorRedirectButtonText={errorTextForDataCouldntFetch.errorRedirectButtonText}
+            //     errorHref={errorTextForDataCouldntFetch.errorRedirectHref}
+            // />;
         });
 
     return (
         <SectionLayout heading={inboxSectionHeader}>
             {error ? (
-                <ErrorPage
-                    errorHeading={errorTextForDataCouldntFetch.errorHeading}
-                    shouldRedirectLink
-                    errorRedirectButtonText={errorTextForDataCouldntFetch.errorRedirectButtonText}
-                    errorHref={errorTextForDataCouldntFetch.errorRedirectHref}
-                />
+                <Loading />
             ) : (
                 <div className={style.container}>
                     {Object.values(data).map(({ name, sender_email, message }) => {

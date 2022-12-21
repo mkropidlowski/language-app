@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import Heading from "components/atoms/Heading";
+import { Loading } from "components/icons";
+import { useAuthContext } from "hooks/useAuthContext";
 import { FC, ReactNode } from "react";
 import style from "./sectionLayout.module.scss";
 
@@ -8,13 +10,22 @@ export interface Props {
     heading: string;
     children: ReactNode;
 }
-const SectionLayout: FC<Props> = ({ heading, className, children }) => (
-    <div className={clsx(style.wrapper, className)}>
-        <Heading variant="h3" className={style.heading}>
-            {heading}
-        </Heading>
-        {children}
-    </div>
-);
+const SectionLayout: FC<Props> = ({ heading, className, children }) => {
+    const { user } = useAuthContext();
+    return (
+        <>
+            {user ? (
+                <div className={clsx(style.wrapper, className)}>
+                    <Heading variant="h3" className={style.heading}>
+                        {heading}
+                    </Heading>
+                    {children}
+                </div>
+            ) : (
+                <Loading />
+            )}
+        </>
+    );
+};
 
 export default SectionLayout;
