@@ -8,7 +8,6 @@ import Textarea from "components/atoms/Textarea";
 import Button from "components/atoms/Button";
 import { addPost } from "modules/addPost/services";
 import PostPreview from "../PostPreview";
-import { Loading } from "components/icons";
 
 export interface AddFormProps {
     heading?: string;

@@ -5,7 +5,7 @@ import SectionLayout from "components/molecules/SectionLayout";
 import { publicEnvs } from "config/envs";
 import { errorTextForDataCouldntFetch } from "config/errorsText/data";
 import { inboxSectionHeader } from "config/panelSection/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ErrorPage from "../ErrorPage";
 import style from "./inboxSection.module.scss";
 
@@ -14,33 +14,46 @@ const API = `${publicEnvs.BASE_URL_API}/emails`;
 const InboxSection = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState<boolean>(false);
-    axios
-        .get(API)
-        .then((response) => {
-            setData(response.data);
-            setError(false);
-        })
-        .catch(() => {
-            setError(true);
-            // <ErrorPage
-            //     errorHeading={errorTextForDataCouldntFetch.errorHeading}
-            //     shouldRedirectLink
-            //     errorRedirectButtonText={errorTextForDataCouldntFetch.errorRedirectButtonText}
-            //     errorHref={errorTextForDataCouldntFetch.errorRedirectHref}
-            // />;
-        });
 
+    useEffect(() => {
+        axios
+            .get(API)
+            .then((response) => {
+                setData(response.data);
+                setError(false);
+            })
+            .catch(() => {
+                setError(true);
+            });
+    }, []);
+
+    console.log(data);
     return (
         <SectionLayout heading={inboxSectionHeader}>
             {error ? (
-                <Loading />
+                <ErrorPage
+                    errorHeading={errorTextForDataCouldntFetch.errorHeading}
+                    shouldRedirectLink
+                    errorRedirectButtonText={errorTextForDataCouldntFetch.errorRedirectButtonText}
+                    errorHref={errorTextForDataCouldntFetch.errorRedirectHref}
+                />
             ) : (
                 <div className={style.container}>
-                    {Object.values(data).map(({ name, sender_email, message }) => {
-                        return (
-                            <EmailBox key={sender_email} name={name} sender_email={sender_email} message={message} />
-                        );
-                    })}
+                    {data ? (
+                        <>
+                            {Object.values(data).map(({ added_at, content }) => (
+                                <EmailBox
+                                    key={added_at}
+                                    added_at={added_at}
+                                    name={content.name}
+                                    sender_email={content.sender_email}
+                                    message={content.message}
+                                />
+                            ))}
+                        </>
+                    ) : (
+                        <Loading />
+                    )}
                 </div>
             )}
         </SectionLayout>
