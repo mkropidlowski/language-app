@@ -27,7 +27,6 @@ const InboxSection = () => {
             });
     }, []);
 
-    console.log(data);
     return (
         <SectionLayout heading={inboxSectionHeader}>
             {error ? (

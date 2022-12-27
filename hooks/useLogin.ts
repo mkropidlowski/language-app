@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "config/firebase/firebaseApp";
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { useRouter } from "next/router";
 
 export interface LoginFormProps {
     email: string;
@@ -19,6 +20,7 @@ export const useLogin = (props: LoginFormProps): UseLoginResult => {
     const [error, setError] = useState(false);
     const [isPending, setIsPending] = useState(false);
     const { dispatch } = useAuthContext();
+    const router = useRouter();
 
     const signIn = async (email: string, password: string): Promise<void> => {
         setError(null);
@@ -36,6 +38,7 @@ export const useLogin = (props: LoginFormProps): UseLoginResult => {
             if (!isCanceled) {
                 setIsPending(false);
                 setError(true);
+                router.push("/logowanie");
             }
         }
     };
