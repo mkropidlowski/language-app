@@ -1,4 +1,5 @@
 import axios from "axios";
+import Button from "components/atoms/Button";
 import { Loading } from "components/icons";
 import EmailBox from "components/molecules/EmailBox";
 import SectionLayout from "components/molecules/SectionLayout";
@@ -26,6 +27,15 @@ const InboxSection = () => {
                 setError(true);
             });
     }, []);
+    const DeletePost = (emailId: number) => {
+        axios
+            .delete(`${API}/${emailId}`)
+            .then((response) => {
+                setData(response.data);
+                setError(false);
+            })
+            .catch(() => setError(false));
+    };
 
     return (
         <SectionLayout heading={inboxSectionHeader}>
@@ -40,14 +50,27 @@ const InboxSection = () => {
                 <div className={style.container}>
                     {data ? (
                         <>
-                            {Object.values(data).map(({ added_at, content }) => (
-                                <EmailBox
-                                    key={added_at}
-                                    added_at={added_at}
-                                    name={content.name}
-                                    sender_email={content.sender_email}
-                                    message={content.message}
-                                />
+                            {Object.values(data).map(({ added_at, id, content }) => (
+                                <>
+                                    <EmailBox
+                                        key={id}
+                                        added_at={added_at}
+                                        name={content.name}
+                                        sender_email={content.sender_email}
+                                        message={content.message}
+                                    >
+                                        <Button
+                                            type="button"
+                                            color="primary"
+                                            buttonSize="small"
+                                            data-id={id}
+                                            className={style.deleteBtn}
+                                            onClick={() => DeletePost(id)}
+                                        >
+                                            Usuń
+                                        </Button>
+                                    </EmailBox>
+                                </>
                             ))}
                         </>
                     ) : (

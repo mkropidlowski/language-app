@@ -9,14 +9,12 @@ import ErrorPage from "../ErrorPage";
 import style from "./postSection.module.scss";
 import { Loading } from "components/icons";
 import Button from "components/atoms/Button";
-import { heading } from "config/section/data";
 
 const API = `${publicEnvs.BASE_URL_API}/posts`;
 
 const PostSection: FC = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState<boolean>(false);
-
     useEffect(() => {
         axios
             .get(API)
@@ -28,6 +26,14 @@ const PostSection: FC = () => {
                 setError(true);
             });
     }, []);
+    const DeletePost = (postId: number) => {
+        useEffect(() => {
+            axios
+                .delete(`${API}/${postId}`)
+                .then((response) => setData(response.data))
+                .catch((err) => console.log(err));
+        }, [postId]);
+    };
 
     return (
         <SectionLayout heading={postSectionHeader}>
@@ -42,27 +48,28 @@ const PostSection: FC = () => {
                 <div className={style.posts}>
                     {data ? (
                         <>
-                            {Object.values(data).map(({ added_at, postContent }) => {
-                                return (
-                                    <>
-                                        <Post
-                                            key={added_at + postContent.heading}
-                                            heading={postContent.heading}
-                                            content={postContent.content}
-                                            author={postContent.author}
+                            {Object.values(data).map(({ added_at, id, postContent }) => (
+                                <>
+                                    <Post
+                                        key={added_at + id}
+                                        heading={postContent.heading}
+                                        content={postContent.content}
+                                        author={postContent.author}
+                                        added_at={added_at}
+                                    >
+                                        <Button
+                                            type="button"
+                                            color="primary"
+                                            buttonSize="small"
+                                            data-id={id}
+                                            className={style.deleteBtn}
+                                            onClick={() => DeletePost(id)}
                                         >
-                                            <Button
-                                                type="button"
-                                                color="primary"
-                                                buttonSize="small"
-                                                onClick={(e) => console.log(e.target)}
-                                            >
-                                                Delete
-                                            </Button>
-                                        </Post>
-                                    </>
-                                );
-                            })}
+                                            Usuń
+                                        </Button>
+                                    </Post>
+                                </>
+                            ))}
                         </>
                     ) : (
                         <Loading />
