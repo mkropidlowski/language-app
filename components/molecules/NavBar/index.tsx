@@ -1,16 +1,16 @@
 import { FC, HTMLProps, useEffect, useState } from "react";
-import style from "./navBar.module.scss";
 import Link from "next/link";
-import { menuLinks } from "config/navbar/data";
+import clsx from "clsx";
 import Button from "components/atoms/Button";
 import Logo from "components/atoms/Logo";
-import clsx from "clsx";
+import { menuLinks } from "config/navbar/data";
 import { useActiveNavbarHook } from "hooks/useActiveNavbarHook";
 import { BREAKPOINT } from "./types";
 import useMediaQuery from "hooks/useMediaQuery";
 import { useHideMobileMenu } from "hooks/useHideMobileMenu";
 import { useAuthContext } from "hooks/useAuthContext";
 import { useLogout } from "hooks/useLogout";
+import style from "./navBar.module.scss";
 
 export interface Props {
     links?: Props[];

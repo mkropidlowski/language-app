@@ -1,5 +1,5 @@
-import Heading from "components/atoms/Heading";
 import { FC, HTMLProps } from "react";
+import Heading from "components/atoms/Heading";
 import style from "./emailBox.module.scss";
 
 export interface Props {

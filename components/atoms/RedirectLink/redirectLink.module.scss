@@ -1,0 +1,9 @@
+@import "/styles/_variables.scss";
+@import "./styles/_breakpoints.scss";
+
+.backToHomepageBtn {
+    a {
+        color: $color-black;
+        border-bottom: 1px solid black;
+    }
+}

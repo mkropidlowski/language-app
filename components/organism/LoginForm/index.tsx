@@ -1,15 +1,18 @@
-import Input from "components/atoms/Input";
 import { FC } from "react";
-import style from "./loginForm.module.scss";
-import Button from "components/atoms/Button";
 import { useRouter } from "next/router";
 import { useLogin } from "hooks/useLogin";
 import { useForm } from "react-hook-form";
-import { validationSchema } from "./validation/validationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Heading from "components/atoms/Heading";
 import Link from "next/link";
 import clsx from "clsx";
+import Input from "components/atoms/Input";
+import Button from "components/atoms/Button";
+import Heading from "components/atoms/Heading";
+import RedirectLink from "components/atoms/RedirectLink";
+import { validationSchema } from "./validation/validationSchema";
+import { retrunToHomePage } from "config/redirectLinkText/data";
+import { loginFormText } from "./helpers/data";
+import style from "./loginForm.module.scss";
 
 export interface LoginFormProps {
     email: string;
@@ -42,7 +45,7 @@ const LoginForm: FC = () => {
                 className={style.form}
             >
                 <Heading variant="h4" bold>
-                    Logowanie do aplikacji:
+                    {loginFormText.heading}
                 </Heading>
 
                 <Input
@@ -65,7 +68,7 @@ const LoginForm: FC = () => {
                 />
                 <div className={style.formButtonBox}>
                     <Button type="submit" color="primary" buttonSize="small" className={style.submitButton}>
-                        Zaloguj
+                        {loginFormText.loginText}
                     </Button>
                     <Button
                         type="button"
@@ -73,17 +76,17 @@ const LoginForm: FC = () => {
                         buttonSize="small"
                         className={clsx(style.submitButton, style.registerButton)}
                     >
-                        <Link href="/rejestracja">Załóż konto</Link>
+                        <Link href="/rejestracja">{loginFormText.registerText}</Link>
                     </Button>
                 </div>
 
-                {error && <p className={style.loginError}>Błąd logowania.</p>}
+                {error && <p className={style.loginError}>{loginFormText.loginError}</p>}
             </form>
-            <Button type="button" color="tertiary" className={style.backToHomepageBtn}>
-                <Link href="/">
-                    <a>Powrót do strony głównej</a>
-                </Link>
-            </Button>
+            <RedirectLink
+                shouldRedirectLink
+                href={retrunToHomePage.href}
+                redirectButtonText={retrunToHomePage.redirectButtonText}
+            />
         </div>
     );
 };

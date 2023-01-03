@@ -1,11 +1,12 @@
-import style from "./userPanel.module.scss";
 import { FC, useState } from "react";
+import style from "./userPanel.module.scss";
 import PanelContent from "components/molecules/PanelContent";
 import Button from "components/atoms/Button";
 import Heading from "components/atoms/Heading";
+import ErrorPage from "components/atoms/ErrorPage";
 import { panelHeading, panelMenuLinks, greetingText } from "config/panelMenu/data";
 import { useAuthContext } from "hooks/useAuthContext";
-import { Loading } from "components/icons";
+import { errorTextIfUserAuthFail } from "config/errorsText/data";
 
 export interface Props {
     text?: string;
@@ -51,7 +52,12 @@ const UserPanel: FC<Props> = ({ links = panelMenuLinks }) => {
                     </div>
                 </div>
             ) : (
-                <Loading />
+                <ErrorPage
+                    shouldRedirectLink
+                    errorHeading={errorTextIfUserAuthFail.errorHeading}
+                    errorHref={errorTextIfUserAuthFail.errorRedirectHref}
+                    errorRedirectButtonText={errorTextIfUserAuthFail.errorRedirectButtonText}
+                />
             )}
         </>
     );

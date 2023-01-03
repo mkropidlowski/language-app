@@ -2,3 +2,5 @@ export const addPostSectionHeader = "Dodaj post : opcja Live view - zacznij pisa
 export const postSectionHeader = "Posty";
 export const userSectionHeader = "Użytkownicy";
 export const inboxSectionHeader = "Skrzynka wiadomości";
+
+export const buttonTextVariant = { delete: "Usuń" };

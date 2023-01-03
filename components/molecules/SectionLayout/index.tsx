@@ -1,8 +1,8 @@
+import { FC, ReactNode } from "react";
 import clsx from "clsx";
 import Heading from "components/atoms/Heading";
 import { Loading } from "components/icons";
 import { useAuthContext } from "hooks/useAuthContext";
-import { FC, ReactNode } from "react";
 import style from "./sectionLayout.module.scss";
 
 export interface Props {

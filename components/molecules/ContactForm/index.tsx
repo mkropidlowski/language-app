@@ -1,14 +1,14 @@
 import { FC, useState } from "react";
-import style from "./contactForm.module.scss";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Input from "components/atoms/Input";
-import { contactFormField, contactFormResponseStatuses, ResponseStatus } from "./data/data";
 import Button from "components/atoms/Button";
 import Textarea from "components/atoms/Textarea";
+import { contactFormField, contactFormResponseStatuses, ResponseStatus } from "./data/data";
 import { FormContent } from "./components/ContactFormDetails/FormContent";
 import { sendMessage } from "modules/contatc/services";
 import { validationSchema } from "./data/validation";
-import { yupResolver } from "@hookform/resolvers/yup";
+import style from "./contactForm.module.scss";
 
 export interface ContactFormProps {
     sender_email?: string;

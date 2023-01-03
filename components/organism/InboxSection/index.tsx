@@ -1,13 +1,14 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { publicEnvs } from "config/envs";
 import Button from "components/atoms/Button";
 import { Loading } from "components/icons";
 import EmailBox from "components/molecules/EmailBox";
 import SectionLayout from "components/molecules/SectionLayout";
-import { publicEnvs } from "config/envs";
 import { errorTextForDataCouldntFetch } from "config/errorsText/data";
 import { inboxSectionHeader } from "config/panelSection/data";
-import { useEffect, useState } from "react";
-import ErrorPage from "../ErrorPage";
+
+import ErrorPage from "../../atoms/ErrorPage";
 import style from "./inboxSection.module.scss";
 
 const API = `${publicEnvs.BASE_URL_API}/emails`;

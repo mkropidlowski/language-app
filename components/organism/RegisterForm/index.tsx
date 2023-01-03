@@ -1,13 +1,15 @@
-import Input from "components/atoms/Input";
 import { FC } from "react";
-import style from "./registerForm.module.scss";
-import Button from "components/atoms/Button";
 import { useForm } from "react-hook-form";
-import Heading from "components/atoms/Heading";
-import Link from "next/link";
 import { useSignUp } from "hooks/useSignup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Input from "components/atoms/Input";
+import Button from "components/atoms/Button";
+import RedirectLink from "components/atoms/RedirectLink";
+import Heading from "components/atoms/Heading";
 import { validationSchema } from "./validation/validationSchema";
+import { registerFormText } from "./helpers/data";
+import { retrunToHomePage } from "config/redirectLinkText/data";
+import style from "./registerForm.module.scss";
 
 export interface RegisterFormProps {
     email: string;
@@ -38,7 +40,7 @@ const RegisterForm: FC = () => {
                 className={style.form}
             >
                 <Heading variant="h4" bold>
-                    Rejestracja konta:
+                    {registerFormText.heading}
                 </Heading>
 
                 <Input
@@ -61,17 +63,17 @@ const RegisterForm: FC = () => {
                 />
                 <div className={style.formButtonBox}>
                     <Button type="submit" color="secondary" buttonSize="small" className={style.registerButton}>
-                        {isPending}Załóż konto
+                        {registerFormText.createAccount}
                     </Button>
                 </div>
 
-                {error && <p className={style.loginError}>Błąd rejestracji.</p>}
+                {error && <p className={style.loginError}>{registerFormText.registerError}</p>}
             </form>
-            <Button type="button" color="tertiary" className={style.backToHomepageBtn}>
-                <Link href="/">
-                    <a>Powrót do strony głównej</a>
-                </Link>
-            </Button>
+            <RedirectLink
+                shouldRedirectLink
+                href={retrunToHomePage.href}
+                redirectButtonText={retrunToHomePage.redirectButtonText}
+            />
         </div>
     );
 };

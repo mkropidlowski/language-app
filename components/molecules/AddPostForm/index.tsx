@@ -1,13 +1,13 @@
 import { FC } from "react";
-import style from "./addPostForm.module.scss";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { validationSchema } from "./data/validation";
 import Input from "components/atoms/Input";
 import Textarea from "components/atoms/Textarea";
 import Button from "components/atoms/Button";
-import { addPost } from "modules/addPost/services";
 import PostPreview from "../PostPreview";
+import { addPost } from "modules/addPost/services";
+import style from "./addPostForm.module.scss";
 
 export interface AddFormProps {
     heading?: string;

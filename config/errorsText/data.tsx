@@ -9,3 +9,8 @@ export const errorTextForDataCouldntFetch = {
     errorRedirectButtonText: "Przejdź do strony głównej.",
     errorRedirectHref: "/",
 };
+
+export const redirectToHomePage = {
+    errorRedirectButtonText: "Przejdź do strony głównej.",
+    errorRedirectHref: "/",
+};

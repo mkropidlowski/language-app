@@ -1,5 +1,5 @@
-import Heading from "components/atoms/Heading";
 import { FC } from "react";
+import Heading from "components/atoms/Heading";
 import style from "./postPreview.module.scss";
 
 export interface Props {

@@ -1,7 +1,6 @@
 import UserSection from "components/organism/UserSection";
 import PostSection from "components/organism/PostSection";
 import InboxSection from "components/organism/InboxSection";
-import AddPostForm from "components/molecules/AddPostForm";
 import AddPostSection from "components/organism/AddPostSection";
 
 export const panelHeading = "Panel zarządzania";
