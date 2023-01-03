@@ -29,12 +29,13 @@ const PostSection: FC = () => {
     }, []);
 
     const DeletePost = (postId: number) => {
-        useEffect(() => {
-            axios
-                .delete(`${API}/${postId}`)
-                .then((response) => setData(response.data))
-                .catch((err) => console.log(err));
-        }, [postId]);
+        axios
+            .delete(`${API}/${postId}`)
+            .then((response) => {
+                setData(response.data);
+                setError(false);
+            })
+            .catch((err) => setError(true));
     };
 
     return (
