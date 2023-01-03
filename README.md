@@ -1,17 +1,13 @@
 ## Getting Started
 
-First, run the development server:
-
-npm run dev
-
-# or
-
-yarn dev
+1. Download repository,
+2. npm install all dependecies,
+3. npm run dev
 
 ```
 Open [http://localhost:4000] with your browser to see the result.
 
-## API SERVER:
+## LIVE App:
 LIVE: https://language-app-h7ab.vercel.app/
 
 ## API SERVER:
