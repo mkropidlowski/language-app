@@ -15,6 +15,7 @@ const API = `${publicEnvs.BASE_URL_API}/posts`;
 const PostSection: FC = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState<boolean>(false);
+
     useEffect(() => {
         axios
             .get(API)
@@ -26,6 +27,7 @@ const PostSection: FC = () => {
                 setError(true);
             });
     }, []);
+
     const DeletePost = (postId: number) => {
         useEffect(() => {
             axios
