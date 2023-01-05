@@ -1,6 +1,7 @@
 import { FC, HTMLProps } from "react";
 import Heading from "components/atoms/Heading";
 import style from "./emailBox.module.scss";
+import clsx from "clsx";
 
 export interface Props {
     name?: string;
@@ -15,9 +16,10 @@ const EmailBox: FC<Props & HTMLProps<HTMLDivElement>> = ({
     sender_email,
     message,
     children,
+    className,
     ...rest
 }) => (
-    <div className={style.wrapper}>
+    <div className={clsx(style.wrapper, className)} {...rest}>
         <Heading variant="h4">
             {name} - {sender_email} : {added_at}
         </Heading>

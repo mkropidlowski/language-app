@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Button from "components/atoms/Button";
 import Heading from "components/atoms/Heading";
 import Link from "next/link";
@@ -9,10 +10,18 @@ export interface Props {
     shouldRedirectLink?: boolean;
     errorHref?: string;
     errorRedirectButtonText?: string;
+    className?: string;
 }
 
-const ErrorPage: FC<Props> = ({ errorHeading, errorHref, shouldRedirectLink, errorRedirectButtonText }) => (
-    <div className={style.wrapper}>
+const ErrorPage: FC<Props> = ({
+    errorHeading,
+    errorHref,
+    shouldRedirectLink,
+    errorRedirectButtonText,
+    className,
+    ...rest
+}) => (
+    <div className={clsx(style.wrapper, className)} {...rest}>
         <Heading variant="h4">{errorHeading}</Heading>
         {shouldRedirectLink ? (
             <Link href={`/${errorHref}`}>

@@ -3,7 +3,7 @@ import style from "./userTable.module.scss";
 const UserTable = () => {
     return (
         <div className={style.wrapper}>
-            <table></table>
+            <p>nobody here</p>
         </div>
     );
 };

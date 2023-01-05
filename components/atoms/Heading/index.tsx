@@ -7,6 +7,7 @@ export type HeadingVariants = "h1" | "h2" | "h3" | "h4";
 interface Props extends HTMLProps<HTMLHeadElement> {
     variant?: HeadingVariants;
     bold?: boolean;
+    className?: string;
 }
 
 const Heading: FC<Props> = ({ variant, bold = false, children, className }) => {

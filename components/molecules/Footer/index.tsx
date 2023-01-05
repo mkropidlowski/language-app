@@ -3,6 +3,7 @@ import Logo from "components/atoms/Logo";
 import style from "./footer.module.scss";
 import { Column } from "components/molecules/Footer/components/Column";
 import { ColumnLinks } from "config/footer/data";
+import clsx from "clsx";
 
 export interface Props {
     heading?: string;
@@ -13,7 +14,7 @@ export interface Props {
 const Footer: FC<Props & HTMLProps<HTMLDivElement>> = ({ className, column = ColumnLinks }) => {
     const id = useId();
     return (
-        <div className={style.wrapper}>
+        <div className={clsx(style.wrapper, className)}>
             <Logo className={style.footerLogo} />
             <div className={style.footerContainer}>
                 <div className={style.columnContainer}>

@@ -41,7 +41,7 @@ const Input = forwardRef<HTMLInputElement, Props & HTMLProps<HTMLInputElement>>(
         const inputHandler = (e: ChangeEvent<HTMLInputElement>) => onChange?.(e);
         const inputPlaceholder = `${label}`;
         return (
-            <div className={style.inputWrapper}>
+            <div className={clsx(style.inputWrapper, className)}>
                 {isError ? <div className={clsx(style.errorMessage, className)}>{errorText}</div> : null}
                 {shouldRenderLabel ? <Label className={style.label} text={inputPlaceholder} /> : null}
                 <input

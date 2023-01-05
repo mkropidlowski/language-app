@@ -12,7 +12,7 @@ export interface SliderData {
     image?: string;
 }
 
-const Slider: FC<Props & HTMLProps<HTMLImageElement>> = ({ slides }) => {
+const Slider: FC<Props & HTMLProps<HTMLImageElement>> = ({ slides, className }) => {
     const id = useId();
 
     const [current, setCurrent] = useState(0);
@@ -30,7 +30,7 @@ const Slider: FC<Props & HTMLProps<HTMLImageElement>> = ({ slides }) => {
     }
 
     return (
-        <div className={style.slider} id="galery">
+        <div className={clsx(style.slider, className)} id="galery">
             <div className={style.slideItem}>
                 {slides.map((item, i) => (
                     <div key={`${id}-${i}`} className={clsx(i === current ? style.slide && style.acive : style.slide)}>

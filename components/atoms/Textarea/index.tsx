@@ -40,7 +40,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, Props & HTMLProps<HTMLTextAreaE
         const inputTextAreaPlaceholder = `${label}`;
 
         return (
-            <div className={clsx(style.textareaWrapper, isError && style.textareaWrapperError)}>
+            <div className={clsx(style.textareaWrapper, isError && style.textareaWrapperError, className)}>
                 {shouldRenderLabel ? <Label text={inputTextAreaPlaceholder} className={style.label} /> : null}
 
                 <textarea

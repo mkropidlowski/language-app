@@ -12,19 +12,17 @@ interface Props {
     hideNavbar?: boolean;
 }
 
-const PageLayout: FC<Props> = ({ title, description, shouldNavbarBeTransparentOnLoad, hideNavbar, children }) => {
-    return (
-        <>
-            <SeoData title={title} description={description} />
-            <NavBar
-                shouldNavbarBeTransparentOnLoad={shouldNavbarBeTransparentOnLoad}
-                hideNavbar={hideNavbar}
-                className={style.wrapper}
-            />
-            <main className={style.container}>{children}</main>
-            <Footer />
-        </>
-    );
-};
+const PageLayout: FC<Props> = ({ title, description, shouldNavbarBeTransparentOnLoad, hideNavbar, children }) => (
+    <>
+        <SeoData title={title} description={description} />
+        <NavBar
+            shouldNavbarBeTransparentOnLoad={shouldNavbarBeTransparentOnLoad}
+            hideNavbar={hideNavbar}
+            className={style.wrapper}
+        />
+        <main className={style.container}>{children}</main>
+        <Footer />
+    </>
+);
 
 export default PageLayout;

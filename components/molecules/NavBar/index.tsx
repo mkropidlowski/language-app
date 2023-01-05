@@ -32,7 +32,6 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({
     const { user } = useAuthContext();
     const { logout } = useLogout(user);
 
-    console.log("Witaj", user);
     useEffect(() => {
         if (isMobileDevice) {
             setIsMobile(true);
