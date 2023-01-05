@@ -1,11 +1,15 @@
 export const menuLinks = {
     home: {
-        id: "/",
+        id: "",
         text: "Home",
     },
     about: {
         id: "about",
         text: "O nas",
+    },
+    posts: {
+        id: "posts",
+        text: "Blog",
     },
     gallery: {
         id: "galery",

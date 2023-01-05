@@ -1,0 +1,20 @@
+@import "/styles/_variables.scss";
+@import "styles/breakpoints";
+
+.wrapper {
+    width: 100%;
+    height: auto;
+    margin-bottom: 100px;
+    scroll-margin: 100px;
+    .posts {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 50px;
+        gap: 15px;
+        .post {
+            background: $color-post-box;
+        }
+    }
+}

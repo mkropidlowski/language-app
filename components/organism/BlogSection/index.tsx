@@ -1,18 +1,17 @@
-import { publicEnvs } from "config/envs";
-import { FC, useEffect, useState } from "react";
-import SectionLayout from "components/molecules/SectionLayout";
-import Post from "components/molecules/Post";
-import Button from "components/atoms/Button";
-import ErrorPage from "../../atoms/ErrorPage";
+import ErrorPage from "components/atoms/ErrorPage";
 import { Loading } from "components/icons";
+import Post from "components/molecules/Post";
+import { publicEnvs } from "config/envs";
 import { errorTextForDataCouldntFetch } from "config/errorsText/data";
-import { postSectionHeader, buttonTextVariant } from "config/panelSection/data";
-import style from "./postSection.module.scss";
-import { getPost, deletePost } from "modules/blog/services";
+import { getPost } from "modules/blog/services";
+import { FC, useEffect, useState } from "react";
+import style from "./blogSection.module.scss";
 
 const API = `${publicEnvs.BASE_URL_API}/posts`;
 
-const PostSection: FC = () => {
+export interface Props {}
+
+const BlogSection: FC<Props> = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState<boolean>(false);
 
@@ -28,16 +27,8 @@ const PostSection: FC = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const handleDelete = (postId: number) => {
-        deletePost(API, postId)
-            .then((response) => {
-                setError(false);
-                setData(response);
-            })
-            .catch(() => setError(true));
-    };
     return (
-        <SectionLayout heading={postSectionHeader}>
+        <div className={style.wrapper} id="posts">
             {error ? (
                 <ErrorPage
                     errorHeading={errorTextForDataCouldntFetch.errorHeading}
@@ -57,18 +48,8 @@ const PostSection: FC = () => {
                                         content={postContent.content}
                                         author={postContent.author}
                                         added_at={added_at}
-                                    >
-                                        <Button
-                                            type="button"
-                                            color="primary"
-                                            buttonSize="small"
-                                            data-id={id}
-                                            className={style.deleteBtn}
-                                            onClick={() => handleDelete(id)}
-                                        >
-                                            {buttonTextVariant.delete}
-                                        </Button>
-                                    </Post>
+                                        className={style.post}
+                                    ></Post>
                                 </>
                             ))}
                         </>
@@ -77,8 +58,8 @@ const PostSection: FC = () => {
                     )}
                 </div>
             )}
-        </SectionLayout>
+        </div>
     );
 };
 
-export default PostSection;
+export default BlogSection;
