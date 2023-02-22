@@ -5,7 +5,13 @@
     width: 100%;
     height: auto;
     margin-bottom: 100px;
-    scroll-margin: 100px;
+    scroll-margin: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .heading {
+        margin-top: 50px;
+    }
     .posts {
         display: flex;
         flex-flow: wrap;

@@ -8,7 +8,7 @@ export const addPost = async (body: AddFormProps) => {
     const res = await instance.post(FORM_URL, body, {
         method: "POST",
         headers: {
-            Signature: "to jest sygnaturaaaa",
+            Signature: "",
         },
     });
 

@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import SeoData from "components/atoms/SeoData";
 import NavBar from "components/molecules/NavBar";
 import UserPanel from "components/organism/UserPanel";

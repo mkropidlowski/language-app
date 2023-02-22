@@ -1,4 +1,5 @@
 import ErrorPage from "components/atoms/ErrorPage";
+import Heading from "components/atoms/Heading";
 import { Loading } from "components/icons";
 import Post from "components/molecules/Post";
 import { publicEnvs } from "config/envs";
@@ -37,26 +38,31 @@ const BlogSection: FC<Props> = () => {
                     errorHref={errorTextForDataCouldntFetch.errorRedirectHref}
                 />
             ) : (
-                <div className={style.posts}>
-                    {data ? (
-                        <>
-                            {Object.values(data).map(({ added_at, id, postContent }) => (
-                                <>
-                                    <Post
-                                        key={added_at + id}
-                                        heading={postContent.heading}
-                                        content={postContent.content}
-                                        author={postContent.author}
-                                        added_at={added_at}
-                                        className={style.post}
-                                    ></Post>
-                                </>
-                            ))}
-                        </>
-                    ) : (
-                        <Loading />
-                    )}
-                </div>
+                <>
+                    <Heading variant="h1" bold className={style.heading}>
+                        Blog
+                    </Heading>
+                    <div className={style.posts}>
+                        {data ? (
+                            <>
+                                {Object.values(data).map(({ added_at, id, postContent }) => (
+                                    <>
+                                        <Post
+                                            key={added_at + id}
+                                            heading={postContent.heading}
+                                            content={postContent.content}
+                                            author={postContent.author}
+                                            added_at={added_at}
+                                            className={style.post}
+                                        ></Post>
+                                    </>
+                                ))}
+                            </>
+                        ) : (
+                            <Loading />
+                        )}
+                    </div>
+                </>
             )}
         </div>
     );
