@@ -1,13 +1,8 @@
-import { AuthContextProvider } from "context/AuthContext";
 import React from "react";
 import "../styles/index.scss";
 
 function MyApp({ Component, pageProps: { ...pageProps } }) {
-    return (
-        <AuthContextProvider>
-            <Component {...pageProps} />
-        </AuthContextProvider>
-    );
+    return <Component {...pageProps} />;
 }
 
 export default MyApp;

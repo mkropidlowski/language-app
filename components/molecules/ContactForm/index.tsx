@@ -6,7 +6,6 @@ import Button from "components/atoms/Button";
 import Textarea from "components/atoms/Textarea";
 import { contactFormField, contactFormResponseStatuses, ResponseStatus } from "./data/data";
 import { FormContent } from "./components/ContactFormDetails/FormContent";
-import { sendMessage } from "modules/contatc/services";
 import { validationSchema } from "./data/validation";
 import style from "./contactForm.module.scss";
 
@@ -35,7 +34,7 @@ const ContactForm: FC = () => {
 
         setResponseStatus("pending");
         try {
-            await sendMessage(formData);
+            // await sendMessage(formData);
             setResponseStatus("sent");
             console.log("wysłano");
 

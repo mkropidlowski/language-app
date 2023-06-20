@@ -13,7 +13,11 @@
         height: auto;
     }
     .heading {
-        font-size: 24px;
+        font-size: 28px;
+        @include max-sm {
+            font-size: 20px;
+            line-height: 30px;
+        }
     }
     .descritpionTitle {
         margin-bottom: 20px;
@@ -24,12 +28,16 @@
         }
     }
     .desciption {
-        margin-top: 80px;
-        text-align: justify;
+        margin-top: 40px;
+        text-align: unset;
         @include max-sm {
             width: 300px;
             .advantagesItem {
-                padding: 10px;
+                list-style-type: none;
+                background-color: rgb(228, 243, 255);
+                border-radius: 9px;
+                color: $color-black;
+                padding: 15px;
                 margin-top: 10px;
             }
         }

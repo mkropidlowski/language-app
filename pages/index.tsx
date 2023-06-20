@@ -1,12 +1,10 @@
 import { NextPage } from "next";
-import style from "./homePage.module.scss";
 import Hero from "components/organism/Hero";
 import AboutSection from "components/organism/AboutSection";
 import Slider from "components/molecules/Slider";
 import { SliderLinks } from "components/molecules/Slider/data/SliderLinks";
 import PageLayout from "components/molecules/PageLayout";
 import ContactForm from "components/molecules/ContactForm";
-import BlogSection from "components/organism/BlogSection";
 
 const Home: NextPage = () => {
     return (
@@ -19,7 +17,6 @@ const Home: NextPage = () => {
             >
                 <Hero />
                 <AboutSection />
-                <BlogSection />
                 <Slider slides={SliderLinks} />
                 <ContactForm />
             </PageLayout>

@@ -41,6 +41,7 @@ const Slider: FC<Props & HTMLProps<HTMLImageElement>> = ({ slides, className }) 
                                 className={style.image}
                                 width={"1000px"}
                                 height={"600px"}
+                                loading={"eager"}
                             />
                         )}
                     </div>

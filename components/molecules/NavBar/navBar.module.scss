@@ -10,8 +10,13 @@
     align-items: center;
     z-index: 50;
     background: $color-white;
-    box-shadow: 0 4px 2px -2px $color-menu-box-shadow;
     transition: background 0.5s;
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
     .menu {
         display: flex;
         flex-direction: row;
@@ -82,7 +87,7 @@
     .menuButton::before,
     .menuButton::after {
         display: block;
-        background: $color-gray;
+        background: $color-black;
         position: absolute;
         height: 4px;
         width: 30px;
@@ -144,7 +149,7 @@
                 color: white;
                 background-color: $color-white;
                 .linkButton {
-                    color: $color-gray;
+                    color: $color-black;
                 }
             }
         }

@@ -1,9 +1,9 @@
 import { FC, HTMLProps, useId } from "react";
-import Logo from "components/atoms/Logo";
 import style from "./footer.module.scss";
 import { Column } from "components/molecules/Footer/components/Column";
 import { ColumnLinks } from "config/footer/data";
 import clsx from "clsx";
+import Logo from "components/icons/Logo";
 
 export interface Props {
     heading?: string;
@@ -15,11 +15,14 @@ const Footer: FC<Props & HTMLProps<HTMLDivElement>> = ({ className, column = Col
     const id = useId();
     return (
         <div className={clsx(style.wrapper, className)}>
-            <Logo className={style.footerLogo} />
+            <div className={style.logo}>
+                <Logo width={50} height={50} />
+                <h3>Nazwa_strony</h3>
+            </div>
             <div className={style.footerContainer}>
                 <div className={style.columnContainer}>
-                    {column.map((e, i) => (
-                        <Column key={`${id}-${i}`} heading={e.heading} text={e.text} />
+                    {column.map((item, i) => (
+                        <Column key={`${id}-${i}`} heading={item.heading} text={item.text} />
                     ))}
                 </div>
             </div>

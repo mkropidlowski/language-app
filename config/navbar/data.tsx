@@ -7,10 +7,6 @@ export const menuLinks = {
         id: "about",
         text: "O nas",
     },
-    posts: {
-        id: "posts",
-        text: "Blog",
-    },
     gallery: {
         id: "galery",
         text: "Galeria",
