@@ -8,18 +8,13 @@ interface Props {
     title: string;
     description: string;
     children: ReactNode;
-    shouldNavbarBeTransparentOnLoad?: boolean;
     hideNavbar?: boolean;
 }
 
-const PageLayout: FC<Props> = ({ title, description, shouldNavbarBeTransparentOnLoad, hideNavbar, children }) => (
+const PageLayout: FC<Props> = ({ title, description, hideNavbar, children }) => (
     <>
         <SeoData title={title} description={description} />
-        <NavBar
-            shouldNavbarBeTransparentOnLoad={shouldNavbarBeTransparentOnLoad}
-            hideNavbar={hideNavbar}
-            className={style.wrapper}
-        />
+        <NavBar hideNavbar={hideNavbar} className={style.wrapper} />
         <main className={style.container}>{children}</main>
         <Footer />
     </>

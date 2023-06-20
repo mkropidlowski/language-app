@@ -9,12 +9,7 @@ import ContactForm from "components/molecules/ContactForm";
 const Home: NextPage = () => {
     return (
         <>
-            <PageLayout
-                title="Language App"
-                description="Małgorzata Langowska"
-                shouldNavbarBeTransparentOnLoad
-                hideNavbar
-            >
+            <PageLayout title="Language App" description="Małgorzata Langowska" hideNavbar>
                 <Hero />
                 <AboutSection />
                 <Slider slides={SliderLinks} />
