@@ -3,7 +3,6 @@ import Link from "next/link";
 import clsx from "clsx";
 import Button from "components/atoms/Button";
 import { menuLinks } from "config/navbar/data";
-import { useActiveNavbarHook } from "hooks/useActiveNavbarHook";
 import { BREAKPOINT } from "./types";
 import useMediaQuery from "hooks/useMediaQuery";
 import { useHideMobileMenu } from "hooks/useHideMobileMenu";
@@ -41,7 +40,7 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({ links = menuLinks, clas
                     </label>
                 </>
             ) : null}
-            <ul className={style.menu}>
+            <ul className={clsx(style.menu)}>
                 {Object.values(links).map(({ id, text }) => {
                     const linksHref = `/#${id}`;
                     return (
