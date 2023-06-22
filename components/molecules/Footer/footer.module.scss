@@ -24,9 +24,8 @@
         height: 400px;
         display: flex;
         justify-content: center;
-        margin-top: 50px;
+        margin-top: 10px;
         @include max-sm {
-            justify-content: unset;
             height: fit-content;
             margin-bottom: 70px;
         }
