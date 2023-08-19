@@ -1,6 +1,6 @@
 import Image from "next/image";
 import style from "./heroImage.module.scss";
-import heroBackground from "public/images/classroombg.jpeg";
+import heroBackground from "public/images/background.jpg";
 import herofilter from "public/images/filter.png";
 
 const HeroImage = () => (

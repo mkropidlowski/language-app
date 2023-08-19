@@ -17,11 +17,11 @@ const Footer: FC<Props & HTMLProps<HTMLDivElement>> = ({ className, column = Col
         <div className={clsx(style.wrapper, className)}>
             <div className={style.logo}>
                 <Logo width={50} height={50} />
-                <h3>Nazwa_strony</h3>
+                <h3>ABC FC Langowska</h3>
             </div>
             <div className={style.footerContainer}>
                 <div className={style.columnContainer}>
-                    {column.map((item, i) => (
+                    {column.map((item: { heading: string; text: string[] }, i: number) => (
                         <Column key={`${id}-${i}`} heading={item.heading} text={item.text} />
                     ))}
                 </div>

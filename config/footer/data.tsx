@@ -1,6 +1,6 @@
 const ColumnContact = {
     heading: "Kontakt",
-    text: ["54 500 10 70", "611-611-311"],
+    text: ["58 531 12 78", "605 683 301"],
 };
 
 const ColumnAddress = {

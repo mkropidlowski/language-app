@@ -28,10 +28,12 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({ links = menuLinks, clas
 
     return (
         <nav className={clsx(style.wrapper, className)}>
-            <div className={style.logo}>
-                <Logo width={50} height={50} />
-                <h3>Nazwa_strony</h3>
-            </div>
+            <Link href={"/"} className={style.logoLink}>
+                <div className={style.logo}>
+                    <Logo width={50} height={50} />
+                    <h3>ABC FC Langowska</h3>
+                </div>
+            </Link>
             {isMobile ? (
                 <>
                     <input className={style.menuToggle} type="checkbox" id="menuToggle" />
@@ -41,12 +43,13 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({ links = menuLinks, clas
                 </>
             ) : null}
             <ul className={clsx(style.menu)}>
-                {Object.values(links).map(({ id, text }) => {
+                {Object.values(links).map(({ id, text, redirectToComponent }) => {
                     const linksHref = `/#${id}`;
+                    const hrefToComponent = `/${id}`;
                     return (
                         <li key={text} className={style.menuLinks}>
-                            <Link href={linksHref}>
-                                <a>
+                            {redirectToComponent ? (
+                                <Link href={hrefToComponent}>
                                     <Button
                                         type="button"
                                         color="tertiary"
@@ -55,8 +58,21 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({ links = menuLinks, clas
                                     >
                                         {text}
                                     </Button>
-                                </a>
-                            </Link>
+                                </Link>
+                            ) : (
+                                <Link href={linksHref}>
+                                    <a>
+                                        <Button
+                                            type="button"
+                                            color="tertiary"
+                                            buttonSize="medium"
+                                            className={style.linkButton}
+                                        >
+                                            {text}
+                                        </Button>
+                                    </a>
+                                </Link>
+                            )}
                         </li>
                     );
                 })}

@@ -11,11 +11,13 @@
     z-index: 50;
     background: $color-white;
     transition: background 0.5s;
+
     .logo {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 20px;
+        cursor: pointer;
     }
     .menu {
         display: flex;

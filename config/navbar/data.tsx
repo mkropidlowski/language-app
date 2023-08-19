@@ -7,6 +7,11 @@ export const menuLinks = {
         id: "about",
         text: "O nas",
     },
+    information: {
+        id: "informacje",
+        text: "Informacje",
+        redirectToComponent: true,
+    },
     gallery: {
         id: "galery",
         text: "Galeria",
