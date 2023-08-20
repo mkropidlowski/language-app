@@ -1,6 +1,6 @@
 @import "/styles/_variables.scss";
-
 .label {
-    padding: 5px;
-    margin: 10px 0 5px;
+    display: flex;
+    flex-direction: column;
+    height: 60px;
 }

@@ -1,7 +1,9 @@
+import styles from "./information.module.scss";
+
 const Information = () => {
     return (
-        <div>
-            <h2> Hello tu będzie sekcja infomacyjna</h2>
+        <div className={styles.container}>
+            <h2> Hello tu będzie sekcja informacyjna</h2>
         </div>
     );
 };

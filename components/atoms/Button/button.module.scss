@@ -59,10 +59,14 @@
     background: transparent;
     color: $color-black;
     border: 0;
-    height: 25px;
+    height: 35px;
+    width: 110px;
     font-weight: $font-weight-bold;
 
     &:hover {
-        color: $color-blue;
+        color: $color-white;
+        border-radius: 10px;
+
+        background: $button-primary-bg-color-hover;
     }
 }

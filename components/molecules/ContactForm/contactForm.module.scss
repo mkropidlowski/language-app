@@ -14,7 +14,7 @@
         font-size: 60px;
         font-weight: 800;
         @include max-lg {
-            font-size: 40px;
+            font-size: 50px;
         }
     }
     @include lg {
@@ -36,14 +36,54 @@
             flex-direction: column;
             width: 320px;
         }
-    }
-    .leftColumn {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 50px;
-        .submitButton {
-            margin-top: 20px;
+        .leftColumn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 50px;
+            .formInput,
+            .formInput:-webkit-autofill {
+                width: 250px;
+                padding: 12px;
+                line-height: 14px;
+                border: 1px solid $color-blue;
+                border-radius: 20px;
+                outline: none;
+                &:active {
+                    border: 1px solid $color-black;
+                }
+                &:hover {
+                    border: 1px solid $color-black;
+                }
+                &:focus {
+                    border: 1px solid $color-black;
+                }
+            }
+            .formTextArea {
+                width: 250px;
+                padding: 8px 12px 8px 16px;
+                border: 1px solid $color-blue;
+                border-radius: 20px;
+                resize: none;
+                &:active {
+                    border: 1px solid $color-black;
+                }
+                &:hover {
+                    border: 1px solid $color-black;
+                }
+                &:focus {
+                    border: 1px solid $color-black;
+                }
+            }
+            .errorText {
+                font-size: 12px;
+                color: red;
+                padding: 5px;
+            }
+            .submitButton {
+                margin-top: 20px;
+            }
         }
     }
 }
