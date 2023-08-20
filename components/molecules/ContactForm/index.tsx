@@ -8,6 +8,7 @@ import { contactFormField, contactFormResponseStatuses, ResponseStatus } from ".
 import { FormContent } from "./components/ContactFormDetails/FormContent";
 import { validationSchema } from "./data/validation";
 import style from "./contactForm.module.scss";
+import Heading from "components/atoms/Heading";
 
 export interface ContactFormProps {
     sender_email?: string;
@@ -46,6 +47,9 @@ const ContactForm: FC = () => {
 
     return (
         <div className={style.contactWrapper} id="contact">
+            <Heading variant="h1" bold className={style.sectionHeading}>
+                Kontakt
+            </Heading>
             <form
                 className={style.form}
                 onSubmit={(e) => {

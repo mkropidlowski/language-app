@@ -4,7 +4,7 @@
 .slider {
     position: relative;
     height: 100vh;
-    scroll-margin-top: 40px;
+    scroll-margin-top: 140px;
     width: 100%;
     margin: 100px 0 100px;
     display: flex;
@@ -12,6 +12,13 @@
     align-items: center;
     flex-direction: column;
     gap: 60px;
+    .sectionHeading {
+        font-size: 60px;
+        font-weight: 800;
+        @include max-lg {
+            font-size: 40px;
+        }
+    }
     @include max-lg {
         margin-top: 0;
         gap: 30px;

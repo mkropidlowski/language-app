@@ -13,7 +13,7 @@ export const AboutContent = () => {
             <div className={style.desciption}>
                 <p className={style.descritpionTitle}>{descriptionTitle}</p>
                 <ul className={style.advantagesList}>
-                    {description.map((item) => (
+                    {description.map((item: string) => (
                         <li key={`${ID}-${item}`} className={style.advantagesItem}>
                             {item}
                         </li>

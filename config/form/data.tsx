@@ -1,4 +1,4 @@
-import { FacebookIcon, InstagramIcon, WhatsappIcon } from "../../components/icons";
+import { FacebookIcon, InstagramIcon } from "../../components/icons";
 
 export const formHeading = "Skontaktuj się z nami!";
 export const formContentText = "Zadzwoń, napisz do nas przez formularz lub przez nasze social media!";
@@ -11,9 +11,5 @@ export const socialMediaLinks = {
     intagram: {
         href: "instagram",
         icon: <InstagramIcon width={"50px"} height={"50px"} />,
-    },
-    whatsApp: {
-        href: "whatsapp",
-        icon: <WhatsappIcon width={"50px"} height={"50px"} />,
     },
 };

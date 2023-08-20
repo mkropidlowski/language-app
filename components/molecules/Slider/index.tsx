@@ -3,6 +3,7 @@ import style from "./slider.module.scss";
 import Image from "next/image";
 import { Arrow } from "components/icons";
 import clsx from "clsx";
+import Heading from "components/atoms/Heading";
 
 export interface Props {
     slides: SliderData[];
@@ -31,6 +32,9 @@ const Slider: FC<Props & HTMLProps<HTMLImageElement>> = ({ slides, className }) 
 
     return (
         <div className={clsx(style.slider, className)} id="galery">
+            <Heading variant="h1" bold className={style.sectionHeading}>
+                Galeria
+            </Heading>
             <div className={style.slideItem}>
                 {slides.map((item, i) => (
                     <div key={`${id}-${i}`} className={clsx(i === current ? style.slide && style.acive : style.slide)}>
@@ -39,8 +43,8 @@ const Slider: FC<Props & HTMLProps<HTMLImageElement>> = ({ slides, className }) 
                                 src={item.image}
                                 alt="slide image"
                                 className={style.image}
-                                width={"1000px"}
-                                height={"600px"}
+                                width={"800px"}
+                                height={"500px"}
                                 loading={"eager"}
                             />
                         )}
