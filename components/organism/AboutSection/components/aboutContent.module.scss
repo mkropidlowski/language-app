@@ -10,7 +10,7 @@
     flex-direction: column;
     margin-top: 30px;
     @include max-sm {
-        width: 320px;
+        width: 300px;
         height: auto;
     }
     .heading {
@@ -25,9 +25,6 @@
         margin-bottom: 20px;
         font-weight: $font-weight-bold;
         font-size: 20px;
-        @include max-sm {
-            font-size: 15px;
-        }
     }
     .desciption {
         margin-top: 40px;
@@ -36,7 +33,7 @@
             width: 300px;
             .advantagesItem {
                 list-style-type: none;
-                background-color: rgb(228, 243, 255);
+                background-color: rgb(230, 236, 241);
                 border-radius: 9px;
                 color: $color-black;
                 padding: 15px;
