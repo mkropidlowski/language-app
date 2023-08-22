@@ -15,7 +15,9 @@ export const Column: FC<Props & HTMLProps<HTMLDivElement>> = ({ heading, text })
             </Heading>
             <ul className={style.columnList}>
                 {text.map((item, i) => (
-                    <li key={`${id}-${i}`}>{item}</li>
+                    <li key={`${id}-${i}`} className={style.columnItem}>
+                        {item}
+                    </li>
                 ))}
             </ul>
         </div>
