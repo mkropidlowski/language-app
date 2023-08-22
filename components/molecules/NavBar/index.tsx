@@ -5,7 +5,6 @@ import Button from "components/atoms/Button";
 import { menuLinks } from "config/navbar/data";
 import { BREAKPOINT } from "./types";
 import useMediaQuery from "hooks/useMediaQuery";
-import { useHideMobileMenu } from "hooks/useHideMobileMenu";
 import style from "./navBar.module.scss";
 import Logo from "components/icons/Logo";
 
@@ -16,15 +15,25 @@ export interface Props {
 }
 
 const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({ links = menuLinks, className, hideNavbar = false }) => {
+    const [isOpen, setIsOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
-    const isMobileDevice = useMediaQuery(BREAKPOINT["MAX-MD"]);
-    const isNavbarHide = useHideMobileMenu();
+    const isMobileDevice = useMediaQuery(BREAKPOINT["MAX-LG"]);
 
     useEffect(() => {
         if (isMobileDevice) {
             setIsMobile(true);
+        } else {
+            setIsMobile(false);
         }
     }, [isMobileDevice]);
+
+    const handleMenuClick = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const handleLinkClick = () => {
+        setIsOpen(false);
+    };
 
     return (
         <nav className={clsx(style.wrapper, className)}>
@@ -34,15 +43,16 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({ links = menuLinks, clas
                     <h3>ABC FC Langowska</h3>
                 </div>
             </Link>
+
             {isMobile ? (
-                <>
-                    <input className={style.menuToggle} type="checkbox" id="menuToggle" />
-                    <label className={style.menuContainer} htmlFor="menuToggle">
-                        <div className={clsx(style.menuButton, hideNavbar && !isNavbarHide && style.menuDefault)}></div>
-                    </label>
-                </>
+                <div className={style.hamburgerIcon} onClick={handleMenuClick}>
+                    <div className={style.bar}></div>
+                    <div className={style.bar}></div>
+                    <div className={style.bar}></div>
+                </div>
             ) : null}
-            <ul className={clsx(style.menu)}>
+
+            <ul className={clsx(style.menu, isOpen ? style.open : "")} data-cy="navLinks">
                 {Object.values(links).map(({ id, text, redirectToComponent }) => {
                     const linksHref = `/#${id}`;
                     const hrefToComponent = `/${id}`;
@@ -55,6 +65,7 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({ links = menuLinks, clas
                                         color="tertiary"
                                         buttonSize="medium"
                                         className={style.linkButton}
+                                        onClick={handleLinkClick}
                                     >
                                         {text}
                                     </Button>
@@ -67,6 +78,7 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({ links = menuLinks, clas
                                             color="tertiary"
                                             buttonSize="medium"
                                             className={style.linkButton}
+                                            onClick={handleLinkClick}
                                         >
                                             {text}
                                         </Button>
