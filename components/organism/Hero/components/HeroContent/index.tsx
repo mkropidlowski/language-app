@@ -1,3 +1,4 @@
+"use client";
 import Button from "components/atoms/Button";
 import Heading from "components/atoms/Heading";
 import style from "./heroContent.module.scss";
@@ -5,9 +6,15 @@ import { heading, content } from "config/hero/data";
 import phone from "../../../../../public/images/phone-call.png";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const HeroContent = () => (
-    <div className={style.content}>
+    <motion.div
+        initial={{ opacity: 0, y: 175 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        className={style.content}
+    >
         <Heading variant="h1" bold className={style.contentHeading}>
             {heading}
         </Heading>
@@ -20,7 +27,7 @@ const HeroContent = () => (
                 </div>
             </Button>
         </Link>
-    </div>
+    </motion.div>
 );
 
 export default HeroContent;
