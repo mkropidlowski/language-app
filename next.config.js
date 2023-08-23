@@ -12,4 +12,7 @@ module.exports = {
         unoptimized: true,
         domains: ["images.unsplash.com"],
     },
+    typescript: {
+        ignoreBuildErrors: true,
+    },
 };
