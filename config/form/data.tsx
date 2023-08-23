@@ -5,7 +5,7 @@ export const formContentText = "Zadzwoń, napisz do nas przez formularz lub prze
 
 export const socialMediaLinks = {
     facebook: {
-        href: "facebook",
+        href: "https://www.facebook.com/szkola.abcfc/?locale=pl_PL",
         icon: <FacebookIcon width={"50px"} height={"50px"} />,
     },
     intagram: {
