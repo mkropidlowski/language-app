@@ -7,7 +7,7 @@ import styles from "./information.module.scss";
 const InformationPage: NextPage = () => {
     return (
         <>
-            <SeoData title="Language-App" description="Rejestracja w portalu Laguage-App" />
+            <SeoData title="ABCFC.pl" description="Szkoła nauki języka Angielskiego!" />
             <NavBar className={styles.nav} />
             <Information />
         </>

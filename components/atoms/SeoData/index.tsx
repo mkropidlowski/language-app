@@ -8,7 +8,7 @@ interface Props {
 const SeoData: FC<Props> = ({ title, description }) => (
     <Head>
         <title>{title}</title>
-        <meta name="google-site-verification" content="" />
+        <meta name="google-site-verification" content="vcN8HZT-HGGSS0F2secGmcbZin_bytjLcRRA4y5WCrk" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
