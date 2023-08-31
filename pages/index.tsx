@@ -10,7 +10,11 @@ import Map from "components/molecules/Map";
 const Home: NextPage = () => {
     return (
         <>
-            <PageLayout title="Language App" description="Małgorzata Langowska" hideNavbar>
+            <PageLayout
+                title="Szkoła językowa ABC"
+                description="Renomowana szkoła do nauki w Tczewie, nauczanie dla wszystkich grup wiekowych!"
+                hideNavbar
+            >
                 <Hero />
                 <AboutSection />
                 <Slider slides={SliderLinks} />
