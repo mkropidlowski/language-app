@@ -19,11 +19,11 @@ const HeroContent = () => (
             {heading}
         </Heading>
         <p className={style.description}>{content}</p>
-        <Link href="tel:555555555">
+        <Link href="tel:607827534">
             <Button color="primary" buttonSize="big" className={style.contactUsBtn}>
                 <div className={style.phoneBox}>
                     <Image src={phone} width={30} height={30} alt="phoneCall" />
-                    <span>555 555 555</span>
+                    <span>607827534</span>
                 </div>
             </Button>
         </Link>
