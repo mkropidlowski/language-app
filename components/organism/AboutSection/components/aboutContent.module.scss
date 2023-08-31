@@ -15,6 +15,7 @@
     }
     .heading {
         font-size: 28px;
+        text-transform: uppercase;
         @include max-sm {
             margin-top: 35px;
             font-size: 20px;
