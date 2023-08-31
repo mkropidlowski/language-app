@@ -1,25 +1,14 @@
+## LIVE: https://www.abcfc.pl
+
 ## Technologies used :
 
--   FRONT-END: NEXT.JS / TypeScript / React Hook Form / yupResolver / Axios / SCSS
--   BACK-END: Firebase Auth / Node.js ( Express ) for API endpoint hosted on Render.com
-
+-   FRONT-END: NEXT.JS / TypeScript / React Hook Form / SCSS
+-   
 ## About website
 
--   The site presents a ladning page of one of the language schools, the site has sections with posts that the administrator can add or remove thanks to the admin panel, additionally, at the bottom of the page there is a contact form through which we can send an inquiry and the admin himself will receive a message in a special mailbox available in the panel administrator after logging in.
+-   The site presents a ladning page of language schools for my client.
 
-## Getting Started
+## Screen view:
 
-1. Download repository,
-2. npm install to install all dependecies,
-3. npm run dev
+![screencapture-abcfc-pl-2023-08-31-16_17_08](https://github.com/mkropidlowski/language-app/assets/16814863/81f37dff-6212-4b0f-8691-a3b4b2921c6d)
 
-```
-Open [http://localhost:3000] with your browser to see the result.
-
-## LIVE App:
-LIVE: https://language-app-h7ab.vercel.app/
-
-## API SERVER:
-SOURCE: https://github.com/mkropidlowski/backend-api
-
-```
