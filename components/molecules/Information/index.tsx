@@ -1,9 +1,24 @@
+import Button from "components/atoms/Button";
 import styles from "./information.module.scss";
+
+import Link from "next/link";
 
 const Information = () => {
     return (
         <div className={styles.container}>
-            <h2> Hello tu będzie sekcja informacyjna</h2>
+            <div>
+                <h2>Informacje dla uczniów i rodziców:</h2>
+            </div>
+            <div>
+                <Link
+                    href={"/documents/informacja_dla_rodzica_abc.pdf"}
+                    download={"/documents/informacja_dla_rodzica_abc.pdf"}
+                >
+                    <Button type="button" color="primary">
+                        Pobierz: informacja dla rodziców i uczniów 2023/2024
+                    </Button>
+                </Link>
+            </div>
         </div>
     );
 };
