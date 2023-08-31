@@ -5,6 +5,8 @@ import { ColumnLinks, ColumnContact } from "config/footer/data";
 
 import clsx from "clsx";
 import Logo from "components/icons/Logo";
+import Heading from "components/atoms/Heading";
+import Link from "next/link";
 
 export interface Props {
     heading?: string;
@@ -28,7 +30,18 @@ const Footer: FC<Props & HTMLProps<HTMLDivElement>> = ({
             </div>
             <div className={style.footerContainer}>
                 <div className={style.columnContainer}>
-                    <Column heading={contactColumn.heading} text={contactColumn.text} />
+                    <div className={style.column}>
+                        <Heading variant="h3" bold>
+                            {contactColumn.heading}
+                        </Heading>
+                        <ul className={style.columnList}>
+                            {contactColumn.text.map((item) => (
+                                <li key={item} className={style.columnItem}>
+                                    <Link href={`tel:${item}`}>{item}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
 
                     {column.map((item: { heading: string; text: string[] }, i: number) => (
                         <Column key={`${id}-${i}`} heading={item.heading} text={item.text} />

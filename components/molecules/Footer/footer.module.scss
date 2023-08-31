@@ -35,6 +35,34 @@
             @include max-lg {
                 flex-direction: column;
             }
+
+            .column {
+                width: 300px;
+                height: 300px;
+
+                @include max-sm {
+                    height: fit-content;
+                    margin-top: 50px;
+                }
+                .columnList {
+                    font-weight: 500;
+                    color: $color-white;
+                    width: 200px;
+                    .columnItem {
+                        list-style-type: none;
+                        margin-top: 30px;
+                        padding: 7px;
+                        border-radius: 5px;
+                        background: $button-primary-bg-color;
+                    }
+                    .columnItem:hover {
+                        background: $button-primary-bg-color-hover;
+                    }
+                }
+                .columnList:hover {
+                    cursor: pointer;
+                }
+            }
         }
     }
 }
