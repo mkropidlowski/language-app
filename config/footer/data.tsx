@@ -1,6 +1,6 @@
 export const ColumnContact = {
     heading: "Kontakt",
-    text: ["58 531 12 78", "605 683 301"],
+    text: ["58 531 12 78", "605 683 301", "607 827 534"],
 };
 
 const ColumnAddress = {
