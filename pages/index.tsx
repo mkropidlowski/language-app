@@ -11,7 +11,7 @@ const Home: NextPage = () => {
     return (
         <>
             <PageLayout
-                title="Szkoła językowa ABC"
+                title="Szkoła językowa ABC FC"
                 description="Renomowana szkoła do nauki w Tczewie, nauczanie dla wszystkich grup wiekowych!"
                 hideNavbar
             >
