@@ -6,6 +6,9 @@ import { SliderLinks } from "components/molecules/Slider/data/SliderLinks";
 import PageLayout from "components/molecules/PageLayout";
 import ContactForm from "components/molecules/ContactForm";
 import Map from "components/molecules/Map";
+import dynamic from "next/dynamic";
+
+const CookieBanner = dynamic(() => import("components/molecules/Cookie"), { ssr: false });
 
 const Home: NextPage = () => {
     return (
@@ -20,6 +23,7 @@ const Home: NextPage = () => {
                 <Slider slides={SliderLinks} />
                 <ContactForm />
                 <Map />
+                <CookieBanner />
             </PageLayout>
         </>
     );

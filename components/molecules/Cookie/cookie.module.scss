@@ -1,0 +1,17 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    font-size: 20px;
+    height: fit-content;
+    background: rgb(233, 233, 233);
+    padding: 20px;
+    p {
+        max-width: 700px;
+    }
+}
