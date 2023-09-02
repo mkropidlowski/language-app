@@ -17,5 +17,11 @@ html {
 
 a {
     text-decoration: none;
+}
+
+a:link {
     color: $color-white;
+}
+a:visited {
+    color: $color-black;
 }

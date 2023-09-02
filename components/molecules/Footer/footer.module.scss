@@ -2,6 +2,7 @@
 @import "./styles/_breakpoints.scss";
 
 .wrapper {
+    position: relative;
     max-width: $page-max-width;
     display: flex;
     flex-direction: column;
@@ -21,13 +22,10 @@
     }
 
     .footerContainer {
-        height: 400px;
         display: flex;
         justify-content: center;
         margin-top: 10px;
         @include max-sm {
-            height: fit-content;
-            margin-bottom: 70px;
         }
         .columnContainer {
             padding: 10px;
@@ -63,6 +61,30 @@
                     cursor: pointer;
                 }
             }
+        }
+    }
+    .bottomPanel {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background: rgb(236, 236, 236);
+        padding: 10px;
+        .heading {
+            color: $color-black;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        @include max-lg {
+            flex-direction: column;
+            gap: 0px;
         }
     }
 }

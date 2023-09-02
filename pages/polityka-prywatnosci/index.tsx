@@ -8,7 +8,6 @@ const PolicyPage: NextPage = () => (
     <>
         <NavBar />
         <PolicyPrivacy />
-        <Footer />
     </>
 );
 

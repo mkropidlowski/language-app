@@ -21,7 +21,8 @@ const Footer: FC<Props & HTMLProps<HTMLDivElement>> = ({
     contactColumn = ColumnContact,
 }) => {
     const id = useId();
-
+    const date = new Date();
+    const authorString = `Wykonał - Michał Kropidłowski - ${date.getFullYear()}`;
     return (
         <div className={clsx(style.wrapper, className)}>
             <div className={style.logo}>
@@ -47,6 +48,22 @@ const Footer: FC<Props & HTMLProps<HTMLDivElement>> = ({
                         <Column key={`${id}-${i}`} heading={item.heading} text={item.text} />
                     ))}
                 </div>
+            </div>
+            <div className={style.bottomPanel}>
+                <Link
+                    href="https://www.mkropidlowski.pl"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className={style.heading}
+                >
+                    <a target="_blank" rel="noopener noreferrer">
+                        {authorString}
+                    </a>
+                </Link>
+
+                <Link href="/polityka-prywatnosci" className={style.heading}>
+                    Polityka prywatności
+                </Link>
             </div>
         </div>
     );
