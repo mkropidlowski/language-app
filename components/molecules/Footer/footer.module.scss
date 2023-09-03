@@ -25,6 +25,7 @@
         display: flex;
         justify-content: center;
         margin-top: 10px;
+        margin-bottom: 80px;
         @include max-sm {
         }
         .columnContainer {
@@ -76,9 +77,9 @@
         border-top-right-radius: 10px;
         background: rgb(236, 236, 236);
         padding: 10px;
+        font-size: 10px;
         .heading {
             color: $color-black;
-            font-size: 13px;
             cursor: pointer;
         }
 

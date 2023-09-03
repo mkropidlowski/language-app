@@ -3,14 +3,19 @@
 
 .content {
     width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     @include max-sm {
         width: auto;
         .image {
-            width: 260px;
+            width: 200px;
+            height: 200px;
         }
     }
     .contentText {
         margin-top: 20px;
+        font-size: 15px;
     }
     .socialMediaIcon {
         margin-top: 25px;

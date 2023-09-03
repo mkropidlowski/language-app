@@ -7,7 +7,6 @@ import { FormContent } from "./components/ContactFormDetails/FormContent";
 import { validationSchema } from "./data/validation";
 import style from "./contactForm.module.scss";
 import Heading from "components/atoms/Heading";
-import { publicEnvs } from "config/envs";
 import { sendContactForm } from "lib/contactForm/contact";
 import Label from "components/atoms/Label";
 
@@ -15,9 +14,11 @@ export interface ContactFormProps {
     email?: string;
     name?: string;
     message?: string;
+    phone?: string;
+    address: string;
+    to: string;
+    text: string;
 }
-
-const EMAIL_ADRESS = `${publicEnvs.GMAIL_ADRESS}`;
 
 const ContactForm: FC = () => {
     const [responseStatus, setResponseStatus] = useState<ResponseStatus>(null);
@@ -37,14 +38,11 @@ const ContactForm: FC = () => {
 
         setResponseStatus("pending");
 
-        const userEmail = {
-            name: formData.name,
-            address: formData.email,
-            to: EMAIL_ADRESS,
-            text: formData.message,
+        const data = {
+            ...formData,
         };
         try {
-            await sendContactForm(userEmail);
+            await sendContactForm(data);
             setResponseStatus("sent");
         } catch (error) {
             setResponseStatus("error");
@@ -81,6 +79,16 @@ const ContactForm: FC = () => {
                             placeholder={"Adres e-mail"}
                             {...register("email")}
                             data-cy="emailAdress"
+                        />
+                        <p className={style.errorText}>{errors.email?.message}</p>
+                    </Label>
+                    <Label>
+                        <input
+                            type="text"
+                            className={style.formInput}
+                            placeholder={"Numer telefonu"}
+                            {...register("phone")}
+                            data-cy="phone"
                         />
                         <p className={style.errorText}>{errors.email?.message}</p>
                     </Label>

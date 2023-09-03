@@ -7,6 +7,7 @@ import { BREAKPOINT } from "./types";
 import useMediaQuery from "hooks/useMediaQuery";
 import style from "./navBar.module.scss";
 import Logo from "components/icons/Logo";
+import { FacebookIcon } from "components/icons";
 
 export interface Props {
     links?: Props[];
@@ -88,6 +89,13 @@ const NavBar: FC<Props & HTMLProps<HTMLDivElement>> = ({ links = menuLinks, clas
                         </li>
                     );
                 })}
+                <li>
+                    <Link href={"https://www.facebook.com/szkola.abcfc/?locale=pl_PL"}>
+                        <a target="_blank" rel="noopener noreferrer">
+                            <FacebookIcon width={"35px"} height={"35px"} />
+                        </a>
+                    </Link>
+                </li>
             </ul>
         </nav>
     );
