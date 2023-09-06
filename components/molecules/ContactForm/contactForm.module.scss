@@ -26,7 +26,7 @@
         justify-content: space-around;
         max-width: 760px;
         padding: 30px;
-        gap: 70px;
+        gap: 50px;
         height: fit-content;
         background-color: $color-white;
         box-shadow: 0px 10px 20px -9px rgba(91, 97, 160, 1);
@@ -40,15 +40,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
-            margin-top: 50px;
+            gap: 25px;
+
             .formInput,
             .formInput:-webkit-autofill {
                 width: 250px;
                 padding: 12px;
                 line-height: 14px;
-                border: 1px solid $color-blue;
-                border-radius: 20px;
+                border: 1px solid #0078ce;
+                border-radius: 5px;
                 outline: none;
                 &:active {
                     border: 1px solid $color-black;
@@ -62,9 +62,10 @@
             }
             .formTextArea {
                 width: 250px;
-                padding: 8px 12px 8px 16px;
-                border: 1px solid $color-blue;
-                border-radius: 20px;
+                min-height: 70px;
+                padding: 4px 4px 8px 12px;
+                border: 1px solid #0078ce;
+                border-radius: 5px;
                 resize: none;
                 &:active {
                     border: 1px solid $color-black;

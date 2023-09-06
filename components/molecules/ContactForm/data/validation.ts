@@ -26,4 +26,9 @@ export const validationSchema = yup.object().shape({
         .required("Pole wiadomość jest wymagane.")
         .min(10, "Minimum liczba znaków - 10.")
         .max(500, "Maksymalna liczba znaków - 500."),
+    phone: yup
+        .string()
+        .required("Pole numer jest wymagane.")
+
+        .max(9, "Numer powinien zawierać 9 znaków."),
 });

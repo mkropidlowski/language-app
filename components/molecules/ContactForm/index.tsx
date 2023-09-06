@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useRef } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Button from "components/atoms/Button";
@@ -8,8 +8,12 @@ import { validationSchema } from "./data/validation";
 import style from "./contactForm.module.scss";
 import Heading from "components/atoms/Heading";
 import { sendContactForm } from "lib/contactForm/contact";
+import ReCAPTCHA from "react-google-recaptcha";
+import { verifyCaptcha } from "pages/api/verifyCaptcha";
 import Label from "components/atoms/Label";
+import { publicEnvs } from "config/envs";
 
+const SITE_KEY = publicEnvs.RECAPTCHA_WEB_KEY;
 export interface ContactFormProps {
     email?: string;
     name?: string;
@@ -22,11 +26,20 @@ export interface ContactFormProps {
 
 const ContactForm: FC = () => {
     const [responseStatus, setResponseStatus] = useState<ResponseStatus>(null);
+    const [isVerified, setIsVerified] = useState<boolean>(false);
+    const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+    async function handleCaptchaSubmission(token: string | null) {
+        await verifyCaptcha(token)
+            .then(() => setIsVerified(true))
+            .catch(() => setIsVerified(false));
+    }
 
     const {
         register,
         handleSubmit,
         getValues,
+        reset,
         formState: { errors },
     } = useForm<ContactFormProps>({
         mode: "all",
@@ -44,6 +57,7 @@ const ContactForm: FC = () => {
         try {
             await sendContactForm(data);
             setResponseStatus("sent");
+            reset();
         } catch (error) {
             setResponseStatus("error");
         }
@@ -90,7 +104,7 @@ const ContactForm: FC = () => {
                             {...register("phone")}
                             data-cy="phone"
                         />
-                        <p className={style.errorText}>{errors.email?.message}</p>
+                        <p className={style.errorText}>{errors.phone?.message}</p>
                     </Label>
                     <Label>
                         <textarea
@@ -102,9 +116,10 @@ const ContactForm: FC = () => {
                         <p className={style.errorText}>{errors.message?.message}</p>
                     </Label>
 
-                    <Button type="submit" color="primary" className={style.submitButton}>
+                    <Button type="submit" color="primary" className={style.submitButton} disabled={!isVerified}>
                         {formStatusCode[responseStatus] ?? formStatusCode.default}
                     </Button>
+                    <ReCAPTCHA sitekey={SITE_KEY} ref={recaptchaRef} onChange={handleCaptchaSubmission} />
                 </div>
                 <div className={style.rightColumn}>
                     <FormContent />
